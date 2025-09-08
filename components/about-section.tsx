@@ -26,7 +26,7 @@ export function AboutSection() {
               <div className="grid lg:grid-cols-2 gap-12 items-center">
                 <div className="space-y-8">
                   <div>
-                    <h2 className="text-4xl font-bold text-gray-800 mb-6">Meet Dr. Danielle Beauvais</h2>
+                    <h2 className="text-4xl font-bold text-gray-800 mb-6">Meet Sifu Danielle Beauvais</h2>
                     <p className="text-xl text-gray-600 leading-relaxed">
                       Your compassionate guide to holistic wellness through the transformative power of Tai Chi, mindful movement, and integrated healing practices.
                     </p>

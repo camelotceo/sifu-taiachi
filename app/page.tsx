@@ -7,6 +7,7 @@ import { CoursesPreview } from "@/components/courses-preview"
 import { FreeVideos } from "@/components/free-videos"
 import { TestimonialsSection } from "@/components/testimonials-section"
 import { AboutSection } from "@/components/about-section"
+import { ContactSection } from "@/components/contact-section"
 import { FAQ } from "@/components/faq"
 import { ChatbotWidget } from "@/components/chatbot-widget"
 import { usePageContent } from "@/hooks/use-page-content"
@@ -49,6 +50,7 @@ export default function HomePage() {
       <TestimonialsSection content={content} />
       <AboutSection />
       <FAQ />
+      <ContactSection />
       <ChatbotWidget />
     </main>
   )

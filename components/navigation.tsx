@@ -15,7 +15,7 @@ export function Navigation() {
     { name: "Courses", href: "/#transformation-courses" },
     { name: "About Dr. Beauvais", href: "/#about" },
     { name: "FAQ", href: "/#faq" },
-    { name: "Contact", href: "/contact" },
+    { name: "Contact", href: "/#contact" },
   ]
 
   return (
