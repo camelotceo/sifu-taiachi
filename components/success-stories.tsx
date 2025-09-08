@@ -8,6 +8,7 @@ import { Badge } from "@/components/ui/badge"
 import { Play, Pause, Volume2, VolumeX } from "lucide-react"
 import { videoData } from "./video-data"
 import { PageContent } from "@/lib/json-content"
+import { PhotoGallery } from "./photo-gallery"
 
 interface SuccessStoriesProps {
   content?: PageContent | null
@@ -252,6 +253,9 @@ export function SuccessStories({ content }: SuccessStoriesProps) {
           </div>
         </div>
       </div>
+      
+      {/* Photo Gallery Section */}
+      <PhotoGallery />
     </section>
   )
 }
