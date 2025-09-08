@@ -1,0 +1,116 @@
+{
+  "meta": {
+    "title": "About",
+    "description": "Meet Dr. Danielle Beauvais - Your guide to holistic wellness through Tai Chi",
+    "path": "/about"
+  },
+  "hero": {
+    "title": "Transform Your World Through Holistic Wellness",
+    "description": "Your compassionate guide to holistic wellness through the transformative power of Tai Chi, mindful movement, and integrated healing practices.",
+    "videoId": "1102922216",
+    "videoThumbnail": "/images/hero-video-thumbnail.jpg"
+  },
+  "biography": {
+    "title": "My Journey to Wellness",
+    "content": "Dr. Danielle Beauvais discovered the transformative power of Tai Chi during her own journey through personal challenges with anxiety and chronic pain. What began as a search for healing became a life-changing passion that has now touched thousands of lives worldwide.\n\nWith over 25 years of dedicated practice and teaching, Dr. Beauvais has developed a unique approach that integrates traditional Tai Chi principles with modern therapeutic techniques. Her method addresses not just physical wellness, but the interconnected nature of mental, emotional, and financial well-being.\n\n\"I believe that true healing happens when we address the whole person,\" says Dr. Beauvais. \"Tai Chi taught me that our bodies, minds, and spirits are not separate entities, but parts of one beautiful, integrated system that deserves our gentle attention and care.\"\n\nHer groundbreaking work in financial wellness through mindfulness practices has helped countless individuals break free from limiting beliefs about money and abundance, creating lasting change that extends far beyond the practice mat."
+  },
+  "credentials": [
+    {
+      "id": "tai-chi-master",
+      "title": "Certified Tai Chi Master Instructor",
+      "color": "purple"
+    },
+    {
+      "id": "therapeutic-movement",
+      "title": "Licensed Therapeutic Movement Specialist",
+      "color": "pink"
+    },
+    {
+      "id": "mbsr",
+      "title": "Certified Mindfulness-Based Stress Reduction (MBSR)",
+      "color": "orange"
+    },
+    {
+      "id": "somatic-therapy",
+      "title": "Advanced Training in Somatic Therapy",
+      "color": "teal"
+    },
+    {
+      "id": "financial-wellness",
+      "title": "Financial Wellness Coaching Certification",
+      "color": "indigo"
+    }
+  ],
+  "publications": [
+    {
+      "id": "flowing-abundance",
+      "title": "Flowing Toward Abundance",
+      "subtitle": "A Guide to Financial Wellness Through Mindful Movement",
+      "icon": "teal"
+    },
+    {
+      "id": "healing-motion",
+      "title": "Healing in Motion",
+      "subtitle": "Tai Chi for Chronic Pain and Depression",
+      "icon": "blue"
+    }
+  ],
+  "affiliations": [
+    {
+      "id": "aventura-hospital",
+      "name": "Aventura Hospital - H2U"
+    },
+    {
+      "id": "cancer-support",
+      "name": "Cancer Support Community of Greater Miami at Jackson North Hospital"
+    },
+    {
+      "id": "claridge-house",
+      "name": "Claridge House Nursing and Rehabilitation"
+    },
+    {
+      "id": "north-miami",
+      "name": "City of North Miami"
+    },
+    {
+      "id": "north-miami-beach",
+      "name": "City of North Miami Beach"
+    },
+    {
+      "id": "grand-court",
+      "name": "Grand Court Lakes Nursing Home"
+    },
+    {
+      "id": "hampton-court",
+      "name": "Hampton Court Nursing Home"
+    },
+    {
+      "id": "miami-jewish",
+      "name": "Miami Jewish Health Systems"
+    },
+    {
+      "id": "north-dade",
+      "name": "North Dade Nursing and Rehab"
+    },
+    {
+      "id": "nmb-library",
+      "name": "North Miami Beach Library"
+    },
+    {
+      "id": "nm-library",
+      "name": "North Miami Public Library"
+    },
+    {
+      "id": "regents-park",
+      "name": "Regents Park of Aventura"
+    },
+    {
+      "id": "tgi-precision",
+      "name": "TGI Precision Adult Day Care"
+    }
+  ],
+  "philosophy": {
+    "title": "My Teaching Philosophy",
+    "quote": "Wellness is not about perfection—it's about progress, compassion, and the courage to show up for yourself every day. Through gentle movement and mindful awareness, we create space for healing that honors both our struggles and our strength."
+  }
+}

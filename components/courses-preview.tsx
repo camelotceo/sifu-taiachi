@@ -1,0 +1,276 @@
+"use client"
+
+import { useState } from "react"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Button } from "@/components/ui/button"
+import { Badge } from "@/components/ui/badge"
+import { Brain, Heart, DollarSign, Star, Users, Clock, CheckCircle, ArrowRight, Play } from "lucide-react"
+import Link from "next/link"
+import { VideoModal } from "./video-modal"
+import { videoData } from "./video-data"
+
+const courses = [
+  {
+    id: "mental-health",
+    title: "Mental Health Mastery",
+    subtitle: "Develop a personalized practice for mental resilience and healing",
+    icon: Brain,
+    color: "purple",
+    price: 99,
+    originalPrice: 149,
+    duration: "8 weeks",
+    lessons: 24,
+    students: 2847,
+    rating: 4.9,
+    description: "The objective of this transformative 5-hours Mental Health Mastery Seminar (lunch included) is to introduce Tai Chi, Chi Gong as a supportive method of exercise to the 450,000.000 plus people on antidepressant or in need of better mental health in order to revolutionize the relationship between mental and emotional well-being.",
+    highlights: [
+      "Daily 7-15-minute morning routines for anxiety relief",
+      "Breathing techniques to control invisible energy",
+      "The rewire of your energetic body for panic attack",
+      "Conscious control to shape your reality",
+      "Mindfulness Tai Chi practices for emotional regulation",
+    ],
+    videoData: videoData.courseVideos["mental-health"],
+  },
+  {
+    id: "physical-health",
+    title: "Physical Wellness and Healing",
+    subtitle: "Gentle Healing for Body & Spirit",
+    icon: Heart,
+    color: "pink",
+    price: 99,
+    originalPrice: 149,
+    duration: "10 weeks",
+    lessons: 30,
+    students: 3521,
+    rating: 4.8,
+    description:
+      "Experience the gentle power of Tai Chi for physical healing. Perfect for seniors, those with chronic pain, or anyone seeking a sustainable approach to fitness and flexibility.",
+    highlights: [
+      "Chair-based modifications available",
+      "Pain relief for common conditions",
+      "Balance and fall prevention exercises",
+      "Gentle strength building",
+    ],
+    videoData: videoData.courseVideos["physical-health"],
+  },
+  {
+    id: "financial-health",
+    title: "Financial Abundance Mindset",
+    subtitle: "Wealth Consciousness Through Wellness",
+    icon: DollarSign,
+    color: "teal",
+    price: 99,
+    originalPrice: 149,
+    duration: "6 weeks",
+    lessons: 18,
+    students: 1893,
+    rating: 4.7,
+    description:
+      "Revolutionary approach combining mindfulness with financial wellness. Break through money blocks and create abundance.",
+    highlights: [
+      "Identify and release money blocks",
+      "Abundance meditation practices",
+      "Mindful money management",
+      "Wealth visualization techniques",
+    ],
+    videoData: videoData.courseVideos["financial-health"],
+  },
+]
+
+export function CoursesPreview() {
+  const [selectedVideo, setSelectedVideo] = useState<any>(null)
+
+  return (
+    <>
+      <section id="transformation-courses" className="py-20 bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 relative overflow-hidden">
+        {/* Background Elements */}
+        <div className="absolute inset-0">
+          <div className="absolute top-20 left-20 w-64 h-64 bg-indigo-200/30 rounded-full blur-3xl animate-pulse" />
+          <div className="absolute bottom-20 right-20 w-80 h-80 bg-pink-200/30 rounded-full blur-3xl animate-pulse delay-1000" />
+        </div>
+
+        <div className="container mx-auto px-4 relative">
+          <div className="text-center mb-16">
+            <div className="flex justify-center items-center gap-3 mb-6">
+              <Brain className="w-12 h-12 text-purple-600" />
+              <Heart className="w-12 h-12 text-pink-600" />
+              <DollarSign className="w-12 h-12 text-teal-600" />
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
+              Comprehensive Wellness
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-pink-600 to-teal-600">
+                Transformation Courses
+              </span>
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed mb-8">
+              Structured programs designed to create lasting change in your mental, physical, and financial well-being.
+              Each course combines ancient wisdom with cutting edge science.
+            </p>
+
+            {/* Course Stats */}
+            <div className="flex flex-wrap justify-center gap-6 mb-8">
+              <div className="flex items-center gap-2 bg-white/80 backdrop-blur-sm px-6 py-3 rounded-full shadow-lg">
+                <Users className="w-5 h-5 text-purple-600" />
+                <span className="font-bold text-gray-800">8,000+ Students</span>
+              </div>
+              <div className="flex items-center gap-2 bg-white/80 backdrop-blur-sm px-6 py-3 rounded-full shadow-lg">
+                <Star className="w-5 h-5 text-yellow-500" />
+                <span className="font-bold text-gray-800">4.8 Avg Rating</span>
+              </div>
+              <div className="flex items-center gap-2 bg-white/80 backdrop-blur-sm px-6 py-3 rounded-full shadow-lg">
+                <CheckCircle className="w-5 h-5 text-green-600" />
+                <span className="font-bold text-gray-800">30-Day Guarantee</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="grid lg:grid-cols-3 gap-8 mb-16">
+            {courses.map((course) => {
+              const IconComponent = course.icon
+              const colorClasses = {
+                purple: "from-purple-500 to-purple-600 border-purple-200 bg-purple-50",
+                pink: "from-pink-500 to-pink-600 border-pink-200 bg-pink-50",
+                teal: "from-teal-500 to-teal-600 border-teal-200 bg-teal-50",
+              }
+
+              return (
+                <Card
+                  key={course.id}
+                  className="group hover:shadow-2xl transition-all duration-500 bg-white/90 backdrop-blur-sm border-2 border-transparent hover:border-purple-300 overflow-hidden"
+                >
+                  <div className="relative">
+                    <img
+                      src={course.videoData.thumbnail || "/placeholder.svg"}
+                      alt={course.title}
+                      className="w-full h-48 object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                    <div
+                      className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 cursor-pointer"
+                      onClick={() => setSelectedVideo(course.videoData)}
+                    >
+                      <div className="w-20 h-20 bg-white/95 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform shadow-2xl">
+                        <Play className="w-8 h-8 text-purple-700 ml-1" />
+                      </div>
+                    </div>
+                    <div className="absolute top-4 left-4">
+                      <Badge className="bg-gradient-to-r from-red-500 to-orange-500 text-white font-bold">
+                        🔥 33% OFF
+                      </Badge>
+                    </div>
+                    <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-2 py-1 rounded-full">
+                      <div className="flex items-center gap-1 text-sm">
+                        <Star className="w-3 h-3 fill-yellow-400 text-yellow-400" />
+                        <span className="font-semibold">{course.rating}</span>
+                      </div>
+                    </div>
+                    <div className="absolute bottom-4 left-4 right-4">
+                      <div className="flex items-center gap-4 text-white text-sm">
+                        <div className="flex items-center gap-1">
+                          <Clock className="w-4 h-4" />
+                          <span>{course.duration}</span>
+                        </div>
+                        <div className="flex items-center gap-1">
+                          <Users className="w-4 h-4" />
+                          <span>{course.students.toLocaleString()}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <CardHeader className="pb-4">
+                    <div className="flex items-center gap-3 mb-3">
+                      <div
+                        className={`w-12 h-12 rounded-full bg-gradient-to-br ${colorClasses[course.color as keyof typeof colorClasses].split(" ")[0]} ${colorClasses[course.color as keyof typeof colorClasses].split(" ")[1]} flex items-center justify-center`}
+                      >
+                        <IconComponent className="w-6 h-6 text-white" />
+                      </div>
+                      <div>
+                        <CardTitle className="text-lg text-gray-800">{course.title}</CardTitle>
+                        <p className="text-sm text-gray-600">{course.subtitle}</p>
+                      </div>
+                    </div>
+                    <p className="text-gray-600 text-sm leading-relaxed">{course.description}</p>
+                  </CardHeader>
+
+                  <CardContent className="space-y-6">
+                    {/* Highlights */}
+                    <div>
+                      <h4 className="font-semibold text-gray-800 mb-3">Key Benefits:</h4>
+                      <ul className="space-y-2">
+                        {course.highlights.map((highlight, index) => (
+                          <li key={index} className="flex items-start gap-2 text-sm text-gray-600">
+                            <CheckCircle className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
+                            <span>{highlight}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    {/* Pricing */}
+                    <div className="pt-4 border-t border-gray-200">
+                      <div className="flex items-center justify-between mb-4">
+                        <div>
+                          <span className="text-2xl font-bold text-gray-800">${course.price}</span>
+                          <span className="text-lg text-gray-400 line-through ml-2">${course.originalPrice}</span>
+                        </div>
+                        <Badge variant="destructive" className="text-xs font-bold">
+                          SAVE $50
+                        </Badge>
+                      </div>
+
+                      <div className="space-y-3">
+                        <Link href={`/courses/${course.id}`}>
+                          <Button
+                            className={`w-full bg-gradient-to-r ${colorClasses[course.color as keyof typeof colorClasses].split(" ")[0]} ${colorClasses[course.color as keyof typeof colorClasses].split(" ")[1]} hover:opacity-90 text-white py-3 group`}
+                          >
+                            Learn More
+                            <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                          </Button>
+                        </Link>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              )
+            })}
+          </div>
+
+          {/* Bottom CTA */}
+          <div className="text-center">
+            <Card className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 text-white border-0 shadow-2xl">
+              <CardContent className="p-8">
+                <h3 className="text-2xl md:text-3xl font-bold mb-4">Transform Your Entire Life</h3>
+                <p className="text-purple-100 mb-6 text-lg max-w-2xl mx-auto">
+                  Don't just treat symptoms—address the root causes. Our holistic approach creates lasting change in all
+                  areas of your life.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <Link href="/courses">
+                    <Button size="lg" className="bg-white text-purple-600 hover:bg-gray-100 px-8 py-3 font-bold">
+                      View All Courses
+                    </Button>
+                  </Link>
+                  <Link href="/about">
+                    <Button
+                      size="lg"
+                      variant="outline"
+                      className="border-2 border-white text-white hover:bg-white hover:text-purple-600 px-8 py-3 font-bold"
+                    >
+                      Meet Dr. Beauvais
+                    </Button>
+                  </Link>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {selectedVideo && (
+        <VideoModal isOpen={!!selectedVideo} onClose={() => setSelectedVideo(null)} video={selectedVideo} />
+      )}
+    </>
+  )
+}

@@ -1,0 +1,493 @@
+{
+  "pages": {
+    "home": {
+      "hero": {
+        "title": "Holistic Wellness",
+        "subtitle": "Discover the ancient art of Tai Chi combined with modern therapeutic practices",
+        "description": "Discover the ancient art of Tai Chi combined with modern therapeutic practices. Heal your mind, strengthen your body, and create financial abundance with Dr. Danielle Beauvais.",
+        "videoId": "1102922216",
+        "videoThumbnail": "/public/images/hero-video-thumbnail.jpg"
+      },
+      "wellnessPillars": [
+        {
+          "id": "mental-wellness",
+          "title": "Mental Wellness",
+          "description": "Overcome anxiety, depression, and stress through mindful movement",
+          "image": "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80"
+        },
+        {
+          "id": "physical-health",
+          "title": "Physical Health",
+          "description": "Gentle healing for chronic pain, balance, and vitality",
+          "image": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80"
+        },
+        {
+          "id": "financial-abundance",
+          "title": "Financial Abundance",
+          "description": "Transform your relationship with money and create wealth",
+          "image": "https://images.unsplash.com/photo-1559827260-dc66d52bef19?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80"
+        }
+      ],
+      "successStories": [
+        {
+          "id": "sarah-anxiety",
+          "title": "From Anxiety to Inner Peace - Sarah's Transformation",
+          "description": "Follow Sarah's incredible journey from daily panic attacks to finding lasting peace through Dr. Beauvais's gentle Tai Chi approach.",
+          "videoId": "PSq8sIZLlKs",
+          "thumbnail": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80",
+          "duration": "8:32",
+          "level": "Beginner"
+        },
+        {
+          "id": "robert-pain",
+          "title": "Healing Chronic Back Pain - Robert's Recovery Story",
+          "description": "Discover how Robert overcame 20 years of chronic back pain through Dr. Beauvais's therapeutic Tai Chi program.",
+          "videoId": "cwlvTcWR3Gs",
+          "thumbnail": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80",
+          "duration": "12:15",
+          "level": "Therapeutic"
+        },
+        {
+          "id": "maria-financial",
+          "title": "Financial Breakthrough Through Mindfulness - Maria's Success",
+          "description": "Maria shares how she broke through money blocks and created her first six-figure year using Dr. Beauvais's unique financial wellness approach.",
+          "videoId": "Jyy0ra2WcQQ",
+          "thumbnail": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80",
+          "duration": "10:45",
+          "level": "All Levels"
+        }
+      ],
+      "testimonials": [
+        {
+          "id": "persistence-test",
+          "name": "Persistence Test",
+          "age": 35,
+          "location": "Test City",
+          "rating": 5,
+          "text": "Testing if data persists",
+          "course": "Test Course",
+          "image": "/test.jpg"
+        }
+      ]
+    },
+    "about": {
+      "hero": {
+        "title": "Meet Dr. Danielle Beauvais!",
+        "description": "Your compassionate guide to holistic wellness through the transformative power of Tai Chi, mindful movement, and integrated healing practices.",
+        "videoId": "1102922216",
+        "videoThumbnail": "/images/dr-danielle-intro.png"
+      },
+      "biography": {
+        "title": "My Journey to Wellness",
+        "content": [
+          "Dr. Danielle Beauvais discovered the transformative power of Tai Chi during her own journey through personal challenges with anxiety and chronic pain. What began as a search for healing became a life-changing passion that has now touched thousands of lives worldwide.",
+          "With over 25 years of dedicated practice and teaching, Dr. Beauvais has developed a unique approach that integrates traditional Tai Chi principles with modern therapeutic techniques. Her method addresses not just physical wellness, but the interconnected nature of mental, emotional, and financial well-being.",
+          "\"I believe that true healing happens when we address the whole person,\" says Dr. Beauvais. \"Tai Chi taught me that our bodies, minds, and spirits are not separate entities, but parts of one beautiful, integrated system that deserves our gentle attention and care.\"",
+          "Her groundbreaking work in financial wellness through mindfulness practices has helped countless individuals break free from limiting beliefs about money and abundance, creating lasting change that extends far beyond the practice mat."
+        ]
+      },
+      "credentials": [
+        {
+          "id": "tai-chi-master",
+          "title": "Certified Tai Chi Master Instructor",
+          "color": "purple"
+        },
+        {
+          "id": "therapeutic-movement",
+          "title": "Licensed Therapeutic Movement Specialist",
+          "color": "pink"
+        },
+        {
+          "id": "mbsr",
+          "title": "Certified Mindfulness-Based Stress Reduction (MBSR)",
+          "color": "orange"
+        },
+        {
+          "id": "somatic-therapy",
+          "title": "Advanced Training in Somatic Therapy",
+          "color": "teal"
+        },
+        {
+          "id": "financial-wellness",
+          "title": "Financial Wellness Coaching Certification",
+          "color": "indigo"
+        }
+      ],
+      "publications": [
+        {
+          "id": "flowing-abundance",
+          "title": "Flowing Toward Abundance",
+          "subtitle": "A Guide to Financial Wellness Through Mindful Movement",
+          "icon": "teal"
+        },
+        {
+          "id": "healing-motion",
+          "title": "Healing in Motion",
+          "subtitle": "Tai Chi for Chronic Pain and Depression",
+          "icon": "blue"
+        }
+      ],
+      "affiliations": [
+        {
+          "id": "aventura-hospital",
+          "name": "Aventura Hospital - H2U"
+        },
+        {
+          "id": "cancer-support",
+          "name": "Cancer Support Community of Greater Miami at Jackson North Hospital"
+        },
+        {
+          "id": "claridge-house",
+          "name": "Claridge House Nursing and Rehabilitation"
+        },
+        {
+          "id": "north-miami",
+          "name": "City of North Miami"
+        },
+        {
+          "id": "north-miami-beach",
+          "name": "City of North Miami Beach"
+        },
+        {
+          "id": "grand-court",
+          "name": "Grand Court Lakes Nursing Home"
+        },
+        {
+          "id": "hampton-court",
+          "name": "Hampton Court Nursing Home"
+        },
+        {
+          "id": "miami-jewish",
+          "name": "Miami Jewish Health Systems"
+        },
+        {
+          "id": "north-dade",
+          "name": "North Dade Nursing and Rehab"
+        },
+        {
+          "id": "nmb-library",
+          "name": "North Miami Beach Library"
+        },
+        {
+          "id": "nm-library",
+          "name": "North Miami Public Library"
+        },
+        {
+          "id": "regents-park",
+          "name": "Regents Park of Aventura"
+        },
+        {
+          "id": "tgi-precision",
+          "name": "TGI Precision Adult Day Care"
+        }
+      ],
+      "philosophy": {
+        "title": "My Teaching Philosophy",
+        "quote": "Wellness is not about perfection—it's about progress, compassion, and the courage to show up for yourself every day. Through gentle movement and mindful awareness, we create space for healing that honors both our struggles and our strength."
+      }
+    },
+    "courses": {
+      "hero": {
+        "title": "Transform Your Life with Our Wellness Courses",
+        "subtitle": "Comprehensive programs designed to heal your mind, strengthen your body, and create financial abundance",
+        "description": "through the ancient wisdom of Tai Chi and modern therapeutic practices."
+      },
+      "courses": [
+        {
+          "id": "mental-health",
+          "title": "Mental Health Mastery",
+          "subtitle": "Develop a personalized practice for mental resilience and healing",
+          "description": "Discover the profound connection between mindful movement and mental wellness. This comprehensive course combines ancient Tai Chi wisdom with modern therapeutic techniques to help you overcome anxiety, depression, and stress.",
+          "price": 99,
+          "originalPrice": 149,
+          "image": "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+          "duration": "8 weeks",
+          "lessons": 24,
+          "students": 2847,
+          "rating": 4.9,
+          "level": "All Levels",
+          "highlights": [
+            "Daily 15-minute morning routines for anxiety relief",
+            "Breathing techniques for panic attack management",
+            "Mindfulness practices for emotional regulation",
+            "Cognitive reframing through movement meditation"
+          ],
+          "modules": [
+            {
+              "title": "Foundation: Understanding the Mind-Body Connection",
+              "duration": "45 min",
+              "lessons": 3,
+              "description": "Mental illness as a dysfunction of Qi (life force) flow and nervous system dysregulation. The role of breathing in healing."
+            }
+          ],
+          "benefits": [
+            "Reduce anxiety and depression symptoms by up to 60%",
+            "Develop emotional resilience and stress management skills",
+            "Learn evidence-based techniques for panic attack management"
+          ],
+          "testimonials": [
+            {
+              "name": "Sarah M.",
+              "rating": 5,
+              "text": "This course literally saved my life. I was struggling with severe anxiety and depression, and Dr. Beauvais's approach gave me tools I use every single day."
+            }
+          ],
+          "videoId": "PSq8sIZLlKs",
+          "videoThumbnail": "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+        }
+      ]
+    },
+    "classes": {
+      "hero": {
+        "title": "Free Practice Classes",
+        "subtitle": "Complete Sessions, Anytime",
+        "description": "Access our complete library of full-length Tai Chi classes, breathing exercises, and meditation sessions. All free, all designed to support your wellness journey."
+      },
+      "categories": [
+        {
+          "id": "all",
+          "name": "All Classes",
+          "count": 48
+        },
+        {
+          "id": "beginner",
+          "name": "Beginner",
+          "count": 16
+        },
+        {
+          "id": "intermediate",
+          "name": "Intermediate",
+          "count": 20
+        },
+        {
+          "id": "advanced",
+          "name": "Advanced",
+          "count": 12
+        }
+      ],
+      "featuredClasses": [
+        {
+          "id": "morning-energy",
+          "title": "Morning Energy Flow - Complete 25 Minute Practice",
+          "description": "Start your day with this energizing Tai Chi sequence designed to awaken your body and mind. Perfect for beginners and includes modifications for all abilities. Ready for More? Love our free classes? Dive deeper and register for live classes now designed to transform your mental, physical, and financial well-being. Back to Home to Register for live classes or online classes",
+          "videoId": "6w7V1_bJcks",
+          "thumbnail": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=350&q=80",
+          "duration": "25:00",
+          "level": "Beginner",
+          "topics": [
+            "Morning Routine",
+            "Energy Cultivation"
+          ],
+          "benefits": [
+            "Boost natural energy",
+            "Improve morning mood"
+          ]
+        }
+      ],
+      "quickPractices": [
+        {
+          "id": "energy-boost",
+          "title": "5-Minute Quick Energy Boost",
+          "description": "Short but powerful sequence for when you need a quick energy boost.",
+          "videoId": "M2kNXbhZGBE",
+          "thumbnail": "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=250&q=80",
+          "duration": "5:45",
+          "level": "All Levels",
+          "topics": [
+            "Quick Energy",
+            "Office Wellness"
+          ],
+          "benefits": [
+            "Instant energy boost",
+            "Combat fatigue"
+          ]
+        }
+      ]
+    },
+    "contact": {
+      "hero": {
+        "title": "Get in Touch",
+        "subtitle": "We're Here to Help",
+        "description": "Have questions about our wellness programs? Ready to start your transformation journey? We'd love to hear from you and support you every step of the way."
+      },
+      "contactInfo": {
+        "email": "info@taichiwithdrbeauvais.com",
+        "phone": "(555) 123-4567",
+        "location": "Online Worldwide"
+      },
+      "socialMedia": [
+        {
+          "id": "facebook",
+          "name": "Facebook",
+          "url": "#",
+          "icon": "facebook"
+        },
+        {
+          "id": "instagram",
+          "name": "Instagram",
+          "url": "#",
+          "icon": "instagram"
+        },
+        {
+          "id": "youtube",
+          "name": "YouTube",
+          "url": "#",
+          "icon": "youtube"
+        },
+        {
+          "id": "twitter",
+          "name": "Twitter",
+          "url": "#",
+          "icon": "twitter"
+        }
+      ],
+      "responseTime": {
+        "email": "Within 24 hours",
+        "phone": "Mon-Fri, 9AM-5PM PST",
+        "chat": "Available 24/7",
+        "emergency": "Use chat for immediate help"
+      }
+    },
+    "faq": {
+      "hero": {
+        "title": "Frequently Asked Questions",
+        "subtitle": "Everything you need to know about starting your wellness journey",
+        "description": "Find answers to common questions about our programs, practices, and approach."
+      },
+      "categories": [
+        {
+          "id": "general",
+          "name": "General",
+          "count": 8
+        },
+        {
+          "id": "courses",
+          "name": "Courses",
+          "count": 5
+        },
+        {
+          "id": "practice",
+          "name": "Practice",
+          "count": 6
+        }
+      ],
+      "faqs": [
+        {
+          "id": "what-is-tai-chi",
+          "question": "What is Tai Chi and how can it help me?",
+          "answer": "Tai Chi is an ancient Chinese practice that combines gentle, flowing movements with deep breathing and meditation. It's often called 'meditation in motion' and has been scientifically proven to reduce stress, improve balance, alleviate chronic pain, and enhance overall well-being.",
+          "category": "general"
+        },
+        {
+          "id": "no-experience",
+          "question": "Do I need any experience to start?",
+          "answer": "Absolutely not! Our programs are designed for complete beginners. Dr. Beauvais guides you step-by-step through each movement and breathing technique.",
+          "category": "general"
+        }
+      ]
+    }
+  },
+  "global": {
+    "siteName": "Tai Chi with Dr. Beauvais",
+    "tagline": "Transform Your World Through Holistic Wellness",
+    "navigation": [
+      {
+        "id": "home",
+        "name": "Home",
+        "href": "/",
+        "order": 1
+      },
+      {
+        "id": "about",
+        "name": "About",
+        "href": "/about",
+        "order": 2
+      },
+      {
+        "id": "classes",
+        "name": "Free Classes",
+        "href": "/classes",
+        "order": 3
+      },
+      {
+        "id": "courses",
+        "name": "Courses",
+        "href": "/courses",
+        "order": 4
+      },
+      {
+        "id": "faq",
+        "name": "FAQ",
+        "href": "/faq",
+        "order": 5
+      },
+      {
+        "id": "contact",
+        "name": "Contact",
+        "href": "/contact",
+        "order": 6
+      }
+    ],
+    "footer": {
+      "description": "Transform your life through the ancient art of Tai Chi combined with modern therapeutic practices.",
+      "links": [
+        {
+          "id": "programs",
+          "title": "Programs",
+          "items": [
+            {
+              "id": "free-classes",
+              "name": "Free Classes",
+              "href": "/classes"
+            },
+            {
+              "id": "courses",
+              "name": "Courses",
+              "href": "/courses"
+            }
+          ]
+        },
+        {
+          "id": "support",
+          "title": "Support",
+          "items": [
+            {
+              "id": "faq",
+              "name": "FAQ",
+              "href": "/faq"
+            },
+            {
+              "id": "contact",
+              "name": "Contact",
+              "href": "/contact"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "ai": {
+    "chatbot": {
+      "systemPrompt": "You are Dr. Danielle Beauvais, a compassionate wellness expert and Tai Chi master with over 25 years of experience. You speak directly as Dr. Danielle, not as an assistant. You are knowledgeable, warm, and encouraging.",
+      "model": "llama3-8b-8192",
+      "maxTokens": 150,
+      "temperature": 0.7,
+      "voiceSettings": {
+        "enabled": true,
+        "rate": 0.75,
+        "pitch": 1.2,
+        "volume": 0.8,
+        "preferredVoices": [
+          "Microsoft Aria Online (Natural)",
+          "Microsoft Jenny Online (Natural)",
+          "Google UK English Female",
+          "Samantha"
+        ]
+      }
+    },
+    "speech": {
+      "enabled": true,
+      "apiKey": ""
+    }
+  }
+}

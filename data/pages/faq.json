@@ -1,0 +1,43 @@
+{
+  "meta": {
+    "title": "FAQ",
+    "description": "Frequently asked questions about our wellness programs and practices",
+    "path": "/faq"
+  },
+  "hero": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "Everything you need to know about starting your wellness journey",
+    "description": "Find answers to common questions about our programs, practices, and approach."
+  },
+  "categories": [
+    {
+      "id": "general",
+      "name": "General",
+      "count": 8
+    },
+    {
+      "id": "courses",
+      "name": "Courses",
+      "count": 5
+    },
+    {
+      "id": "practice",
+      "name": "Practice",
+      "count": 6
+    }
+  ],
+  "faqs": [
+    {
+      "id": "what-is-tai-chi",
+      "question": "What is Tai Chi and how can it help me?",
+      "answer": "Tai Chi is an ancient Chinese practice that combines gentle, flowing movements with deep breathing and meditation. It's often called 'meditation in motion' and has been scientifically proven to reduce stress, improve balance, alleviate chronic pain, and enhance overall well-being.",
+      "category": "general"
+    },
+    {
+      "id": "no-experience",
+      "question": "Do I need any experience to start?",
+      "answer": "Absolutely not! Our programs are designed for complete beginners. Dr. Beauvais guides you step-by-step through each movement and breathing technique.",
+      "category": "general"
+    }
+  ]
+} 

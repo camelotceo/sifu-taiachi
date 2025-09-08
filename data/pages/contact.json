@@ -1,0 +1,49 @@
+{
+  "meta": {
+    "title": "Contact",
+    "description": "Get in touch with Dr. Danielle Beauvais for your wellness journey",
+    "path": "/contact"
+  },
+  "hero": {
+    "title": "Get in Touch",
+    "subtitle": "We're Here to Help",
+    "description": "Have questions about our wellness programs? Ready to start your transformation journey? We'd love to hear from you and support you every step of the way."
+  },
+  "contactInfo": {
+    "email": "info@taichiwithdrbeauvais.com",
+    "phone": "(555) 123-4567",
+    "location": "Online Worldwide"
+  },
+  "socialMedia": [
+    {
+      "id": "facebook",
+      "name": "Facebook",
+      "url": "#",
+      "icon": "facebook"
+    },
+    {
+      "id": "instagram",
+      "name": "Instagram",
+      "url": "#",
+      "icon": "instagram"
+    },
+    {
+      "id": "youtube",
+      "name": "YouTube",
+      "url": "#",
+      "icon": "youtube"
+    },
+    {
+      "id": "twitter",
+      "name": "Twitter",
+      "url": "#",
+      "icon": "twitter"
+    }
+  ],
+  "responseTime": {
+    "email": "Within 24 hours",
+    "phone": "Mon-Fri, 9AM-5PM PST",
+    "chat": "Available 24/7",
+    "emergency": "Use chat for immediate help"
+  }
+} 

@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "title": "Free Classes",
+    "description": "Access our complete library of free Tai Chi classes and wellness practices",
+    "path": "/classes"
+  },
+  "hero": {
+    "title": "Free Practice Classes",
+    "subtitle": "Complete Sessions, Anytime",
+    "description": "Access our complete library of full-length Tai Chi classes, breathing exercises, and meditation sessions. All free, all designed to support your wellness journey."
+  },
+  "categories": [
+    {
+      "id": "all",
+      "name": "All Classes",
+      "count": 48
+    },
+    {
+      "id": "beginner",
+      "name": "Beginner",
+      "count": 16
+    },
+    {
+      "id": "intermediate",
+      "name": "Intermediate",
+      "count": 20
+    },
+    {
+      "id": "advanced",
+      "name": "Advanced",
+      "count": 12
+    }
+  ],
+  "featuredClasses": [
+    {
+      "id": "morning-energy",
+      "title": "Morning Energy Flow - Complete 25 Minute Practice",
+      "description": "Start your day with this energizing Tai Chi sequence designed to awaken your body and mind. Perfect for beginners and includes modifications for all abilities. Ready for More? Love our free classes? Dive deeper and register for live classes now designed to transform your mental, physical, and financial well-being. Back to Home to Register for live classes or online classes",
+      "videoId": "6w7V1_bJcks",
+      "thumbnail": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=350&q=80",
+      "duration": "25:00",
+      "level": "Beginner",
+      "topics": [
+        "Morning Routine",
+        "Energy Cultivation"
+      ],
+      "benefits": [
+        "Boost natural energy",
+        "Improve morning mood"
+      ]
+    }
+  ],
+  "quickPractices": [
+    {
+      "id": "energy-boost",
+      "title": "5-Minute Quick Energy Boost",
+      "description": "Short but powerful sequence for when you need a quick energy boost.",
+      "videoId": "M2kNXbhZGBE",
+      "thumbnail": "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=250&q=80",
+      "duration": "5:45",
+      "level": "All Levels",
+      "topics": [
+        "Quick Energy",
+        "Office Wellness"
+      ],
+      "benefits": [
+        "Instant energy boost",
+        "Combat fatigue"
+      ]
+    }
+  ]
+} 
