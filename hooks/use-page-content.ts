@@ -49,11 +49,11 @@ export function usePageContent(pageName: string) {
     fetchContent()
   }, [fetchContent])
 
-  // Auto-refresh every 30 seconds
-  useEffect(() => {
-    const interval = setInterval(fetchContent, 30000)
-    return () => clearInterval(interval)
-  }, [fetchContent])
+  // Auto-refresh disabled per user request
+  // useEffect(() => {
+  //   const interval = setInterval(fetchContent, 30000)
+  //   return () => clearInterval(interval)
+  // }, [fetchContent])
 
   const refresh = useCallback(() => {
     fetchContent()

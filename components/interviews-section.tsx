@@ -3,7 +3,8 @@
 import { useState } from "react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Play, User, Tag, CheckCircle } from "lucide-react"
+import { Play, User, Tag, CheckCircle, ArrowRight } from "lucide-react"
+import { Button } from "@/components/ui/button"
 import { VideoModal } from "./video-modal"
 import { videoData, type VideoData } from "./video-data"
 
@@ -62,16 +63,14 @@ export function InterviewsSection() {
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
 
-                    {/* Play Button Overlay */}
-                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-300 flex items-center justify-center">
+                    {/* Background overlay */}
+                    <div className="absolute inset-0 bg-black/20" />
+
+                    {/* Play Button - Only shows on hover */}
+                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                       <div className="bg-white/90 backdrop-blur-sm rounded-full p-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
                         <Play className="w-8 h-8 text-blue-600 ml-1" />
                       </div>
-                    </div>
-
-                    {/* Duration Badge */}
-                    <div className="absolute top-4 right-4">
-                      <Badge className="bg-black/70 text-white border-0">{interview.duration}</Badge>
                     </div>
                   </div>
 
@@ -109,7 +108,7 @@ export function InterviewsSection() {
                     </div>
 
                     {/* Benefits Preview */}
-                    <div>
+                    <div className="mb-4">
                       <div className="flex items-center gap-1 mb-2">
                         <CheckCircle className="w-4 h-4 text-green-600" />
                         <span className="text-sm font-medium text-gray-700">You'll Learn:</span>
@@ -123,28 +122,27 @@ export function InterviewsSection() {
                         ))}
                       </ul>
                     </div>
+
+                    {/* Enroll Button */}
+                    <div className="pt-4 border-t border-gray-100">
+                      <a
+                        href="https://www.eventbrite.com/e/tai-chi-with-dr-beauvais-to-manifest-financial-abundance-luncheon-tickets-1668941100759?aff=oddtdtcreator"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        <Button className="w-full bg-gradient-to-r from-blue-600 to-teal-600 hover:from-blue-700 hover:to-teal-700 text-white py-2 text-sm font-semibold">
+                          Enroll now
+                          <ArrowRight className="w-4 h-4 ml-2" />
+                        </Button>
+                      </a>
+                    </div>
                   </div>
                 </CardContent>
               </Card>
             ))}
           </div>
 
-          {/* Call to Action */}
-          <div className="text-center bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-gray-200">
-            <h3 className="text-2xl font-bold text-gray-800 mb-4">Ready to Dive Deeper?</h3>
-            <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-              These interviews are just the beginning. Explore our comprehensive courses to experience the full
-              transformation that thousands of students have achieved.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-gradient-to-r from-blue-600 to-teal-600 text-white px-8 py-3 rounded-full font-semibold hover:shadow-lg transition-all duration-300 hover:scale-105">
-                Explore Our Courses
-              </button>
-              <button className="border-2 border-blue-600 text-blue-600 px-8 py-3 rounded-full font-semibold hover:bg-blue-600 hover:text-white transition-all duration-300">
-                Learn More About Dr. Beauvais
-              </button>
-            </div>
-          </div>
         </div>
       </section>
 

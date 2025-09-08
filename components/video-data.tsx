@@ -51,13 +51,13 @@ export const videoData = {
     ],
   },
 
-  // Success stories videos - Added new video as first entry, now 5 total videos
+  // Success stories videos - Updated with specified names
   successStories: [
     {
       id: "wellness-transformation",
-      title: "Complete Wellness Transformation - Michelle's Journey",
+      title: "Jacqueline",
       description:
-        "Michelle shares her inspiring story of complete life transformation through Dr. Beauvais's holistic Tai Chi approach, finding balance in mind, body, and spirit.",
+        "Jacqueline shares her inspiring story of complete life transformation through Dr. Beauvais's holistic Tai Chi approach, finding balance in mind, body, and spirit.",
       vimeoId: "1104929012",
       thumbnail: "/images/success-stories/thumb-new-first.png",
       duration: "11:45",
@@ -68,9 +68,9 @@ export const videoData = {
     },
     {
       id: "sarah-anxiety",
-      title: "From Anxiety to Inner Peace - Sarah's Transformation",
+      title: "Joanna",
       description:
-        "Follow Sarah's incredible journey from daily panic attacks to finding lasting peace through Dr. Beauvais's gentle Tai Chi approach.",
+        "Follow Joanna's incredible journey from daily panic attacks to finding lasting peace through Dr. Beauvais's gentle Tai Chi approach.",
       vimeoId: "1102921684",
       thumbnail: "/images/success-stories/thumb-1.jpg",
       duration: "8:32",
@@ -81,9 +81,9 @@ export const videoData = {
     },
     {
       id: "robert-pain",
-      title: "Healing Chronic Back Pain - Robert's Recovery Story",
+      title: "Maria",
       description:
-        "Discover how Robert overcame 20 years of chronic back pain through Dr. Beauvais's therapeutic Tai Chi program.",
+        "Discover how Maria overcame 20 years of chronic back pain through Dr. Beauvais's therapeutic Tai Chi program.",
       vimeoId: "1102921676",
       thumbnail: "/images/success-stories/thumb-2-new.jpg",
       duration: "12:15",
@@ -94,9 +94,9 @@ export const videoData = {
     },
     {
       id: "maria-financial",
-      title: "Financial Breakthrough Through Mindfulness - Maria's Success",
+      title: "Miguel",
       description:
-        "Maria shares how she broke through money blocks and created her first six-figure year using Dr. Beauvais's unique financial wellness approach.",
+        "Miguel shares how he broke through money blocks and created his first six-figure year using Dr. Beauvais's unique financial wellness approach.",
       vimeoId: "1102921664",
       thumbnail: "/images/success-stories/thumb-3.jpg",
       duration: "10:45",
@@ -107,9 +107,9 @@ export const videoData = {
     },
     {
       id: "jennifer-depression",
-      title: "Overcoming Depression - Jennifer's Journey to Joy",
+      title: "Dr. Raida",
       description:
-        "Jennifer's powerful story of healing from depression and finding joy again through Dr. Beauvais's compassionate Tai Chi approach.",
+        "Dr. Raida's powerful story of healing from depression and finding joy again through Dr. Beauvais's compassionate Tai Chi approach.",
       vimeoId: "1102921650",
       thumbnail: "/images/success-stories/thumb-2.jpg",
       duration: "9:20",

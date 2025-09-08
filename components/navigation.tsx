@@ -2,7 +2,8 @@
 
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
-import { Menu, X, Heart } from "lucide-react"
+import { Menu, X } from "lucide-react"
+import Image from "next/image"
 import Link from "next/link"
 
 export function Navigation() {
@@ -10,7 +11,7 @@ export function Navigation() {
 
   const navItems = [
     { name: "Home", href: "/" },
-    { name: "Free Classes", href: "/classes" },
+    { name: "Free Classes", href: "/#free-practice-classes" },
     { name: "Courses", href: "/#transformation-courses" },
     { name: "About Dr. Beauvais", href: "/about" },
     { name: "FAQ", href: "/#faq" },
@@ -23,8 +24,14 @@ export function Navigation() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
-            <div className="w-10 h-10 bg-gradient-to-br from-purple-600 to-pink-600 rounded-full flex items-center justify-center">
-              <Heart className="w-6 h-6 text-white" />
+            <div className="w-12 h-12 flex items-center justify-center">
+              <Image
+                src="/images/taichilogo.webp"
+                alt="Tai Chi with Dr. Beauvais Logo"
+                width={48}
+                height={48}
+                className="object-contain"
+              />
             </div>
             <div>
               <span className="text-xl font-bold text-gray-800">Tai Chi with Dr. Beauvais</span>
@@ -44,9 +51,17 @@ export function Navigation() {
                   onClick={isAnchorLink ? (e) => {
                     e.preventDefault()
                     const targetId = item.href.substring(2) // Remove '/#'
-                    const targetElement = document.getElementById(targetId)
-                    if (targetElement) {
-                      targetElement.scrollIntoView({ behavior: 'smooth' })
+                    
+                    // Check if we're on the homepage
+                    if (window.location.pathname === '/') {
+                      // On homepage, just scroll to the section
+                      const targetElement = document.getElementById(targetId)
+                      if (targetElement) {
+                        targetElement.scrollIntoView({ behavior: 'smooth' })
+                      }
+                    } else {
+                      // On other pages, navigate to homepage with hash
+                      window.location.href = `/#${targetId}`
                     }
                   } : undefined}
                 >
@@ -55,11 +70,6 @@ export function Navigation() {
                 </Link>
               )
             })}
-            <Link href="/classes">
-              <Button className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white rounded-full px-6 shadow-lg hover:shadow-xl transition-all">
-                Start Free
-              </Button>
-            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -91,9 +101,17 @@ export function Navigation() {
                       if (isAnchorLink) {
                         e.preventDefault()
                         const targetId = item.href.substring(2) // Remove '/#'
-                        const targetElement = document.getElementById(targetId)
-                        if (targetElement) {
-                          targetElement.scrollIntoView({ behavior: 'smooth' })
+                        
+                        // Check if we're on the homepage
+                        if (window.location.pathname === '/') {
+                          // On homepage, just scroll to the section
+                          const targetElement = document.getElementById(targetId)
+                          if (targetElement) {
+                            targetElement.scrollIntoView({ behavior: 'smooth' })
+                          }
+                        } else {
+                          // On other pages, navigate to homepage with hash
+                          window.location.href = `/#${targetId}`
                         }
                       }
                     }}
@@ -102,11 +120,6 @@ export function Navigation() {
                   </Link>
                 )
               })}
-              <Link href="/classes" onClick={() => setIsOpen(false)}>
-                <Button className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white rounded-full w-fit px-6">
-                  Start Free
-                </Button>
-              </Link>
             </div>
           </div>
         )}

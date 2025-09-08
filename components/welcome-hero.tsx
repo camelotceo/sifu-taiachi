@@ -65,24 +65,17 @@ export function WelcomeHero({ content }: WelcomeHeroProps) {
 
                 {/* CTA Buttons */}
                 <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                  <Link href="/classes">
-                    <Button
-                      size="lg"
-                      className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-8 py-4 text-lg rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105"
-                    >
-                      Start Free Practice
-                      <ArrowRight className="w-5 h-5 ml-2" />
-                    </Button>
-                  </Link>
-                  <Link href="/courses">
-                    <Button
-                      size="lg"
-                      variant="outline"
-                      className="border-2 border-white text-white hover:bg-white hover:text-purple-600 px-8 py-4 text-lg rounded-full backdrop-blur-sm bg-white/10 shadow-xl hover:shadow-2xl transition-all duration-300"
-                    >
-                      Explore Courses
-                    </Button>
-                  </Link>
+                  <button
+                    onClick={() => {
+                      const targetElement = document.getElementById('transformation-courses')
+                      if (targetElement) {
+                        targetElement.scrollIntoView({ behavior: 'smooth' })
+                      }
+                    }}
+                    className="border-2 border-white text-white hover:bg-white hover:text-purple-600 px-8 py-4 text-lg rounded-full backdrop-blur-sm bg-white/10 shadow-xl hover:shadow-2xl transition-all duration-300"
+                  >
+                    Explore Courses
+                  </button>
                 </div>
               </div>
 
@@ -116,10 +109,6 @@ export function WelcomeHero({ content }: WelcomeHeroProps) {
                   </div>
                 </div>
 
-                {/* Floating Elements */}
-                <div className="absolute -top-6 -right-6 bg-gradient-to-r from-yellow-400 to-orange-500 text-white px-4 py-2 rounded-full text-sm font-bold shadow-xl animate-bounce">
-                  ✨ Free to Start!
-                </div>
               </div>
             </div>
           </div>

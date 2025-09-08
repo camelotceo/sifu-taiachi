@@ -88,15 +88,15 @@ export function useHomeContent() {
     fetchContent()
   }, [fetchContent])
 
-  // Auto-refresh every 30 seconds for real-time updates
-  useEffect(() => {
-    const interval = setInterval(() => {
-      console.log("Hook: Auto-refreshing content...")
-      fetchContent()
-    }, 30000) // 30 seconds
+  // Auto-refresh disabled per user request
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     console.log("Hook: Auto-refreshing content...")
+  //     fetchContent()
+  //   }, 30000) // 30 seconds
 
-    return () => clearInterval(interval)
-  }, [fetchContent])
+  //   return () => clearInterval(interval)
+  // }, [fetchContent])
 
   // Manual refresh function
   const refresh = useCallback(() => {

@@ -95,6 +95,12 @@ const faqs = [
     answer:
       "According to Sifu Beauvais, practicing Tai Chi for better health and wellness upon waking for about 15-30 minutes and before sleep 10-20 minutes daily.",
   },
+  {
+    id: 16,
+    question: "Can I take Tai Chi classes for health on a regular basis?",
+    answer:
+      "Absolutely... You may register for in person and online Tai Chi/Qigong classes at the luncheon.",
+  },
 ]
 
 export function FAQ() {

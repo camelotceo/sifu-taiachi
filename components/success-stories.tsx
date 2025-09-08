@@ -199,17 +199,6 @@ export function SuccessStories({ content }: SuccessStoriesProps) {
                     </div>
                   )}
 
-                  {/* Video Info Overlay */}
-                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-3">
-                    <div className="flex items-center gap-1 mb-1">
-                      <Badge variant="secondary" className="bg-white/20 text-white border-white/30 text-xs">
-                        {story.duration}
-                      </Badge>
-                      <Badge variant="secondary" className="bg-white/20 text-white border-white/30 text-xs">
-                        {story.level}
-                      </Badge>
-                    </div>
-                  </div>
                 </div>
 
                 {/* Story Details */}
@@ -252,12 +241,14 @@ export function SuccessStories({ content }: SuccessStoriesProps) {
             approach. Your transformation story could be next.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-3 rounded-full font-semibold hover:shadow-lg transition-all duration-300 hover:scale-105">
+            <a
+              href="https://www.eventbrite.com/e/tai-chi-with-dr-beauvais-to-manifest-financial-abundance-luncheon-tickets-1668941100759?aff=oddtdtcreator"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-3 rounded-full font-semibold hover:shadow-lg transition-all duration-300 hover:scale-105 inline-block text-center"
+            >
               Start Your Journey Today
-            </button>
-            <button className="border-2 border-purple-600 text-purple-600 px-8 py-3 rounded-full font-semibold hover:bg-purple-600 hover:text-white transition-all duration-300">
-              Explore Our Courses
-            </button>
+            </a>
           </div>
         </div>
       </div>

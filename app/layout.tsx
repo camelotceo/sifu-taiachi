@@ -33,6 +33,22 @@ export default async function RootLayout({
         {children}
         {!isAdminPage && <Footer />}
         {!isAdminPage && <ChatbotWidget />}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              // Handle hash navigation on homepage
+              if (window.location.pathname === '/' && window.location.hash) {
+                setTimeout(() => {
+                  const targetId = window.location.hash.substring(1);
+                  const targetElement = document.getElementById(targetId);
+                  if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }, 100);
+              }
+            `,
+          }}
+        />
       </body>
     </html>
   )

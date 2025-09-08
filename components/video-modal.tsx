@@ -150,12 +150,14 @@ export function VideoModal({ video, isOpen, onClose }: VideoModalProps) {
                 This is just a glimpse of what's possible. Explore our comprehensive courses for deeper transformation.
               </p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                <button className="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-6 py-2 rounded-full font-semibold hover:shadow-lg transition-all duration-300">
-                  Explore Courses
-                </button>
-                <button className="border border-purple-600 text-purple-600 px-6 py-2 rounded-full font-semibold hover:bg-purple-600 hover:text-white transition-all duration-300">
-                  Learn More
-                </button>
+                <a
+                  href="https://www.eventbrite.com/e/tai-chi-with-dr-beauvais-to-manifest-financial-abundance-luncheon-tickets-1668941100759?aff=oddtdtcreator"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-6 py-2 rounded-full font-semibold hover:shadow-lg transition-all duration-300 inline-block text-center"
+                >
+                  Enroll now
+                </a>
               </div>
             </div>
           </div>

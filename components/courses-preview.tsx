@@ -4,7 +4,7 @@ import { useState } from "react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { Brain, Heart, DollarSign, Star, Users, Clock, CheckCircle, ArrowRight, Play } from "lucide-react"
+import { Brain, Heart, DollarSign, Star, Users, Clock, CheckCircle, ArrowRight, Play, X } from "lucide-react"
 import Link from "next/link"
 import { VideoModal } from "./video-modal"
 import { videoData } from "./video-data"
@@ -21,7 +21,7 @@ const courses = [
     duration: "8 weeks",
     lessons: 24,
     students: 2847,
-    rating: 4.9,
+    rating: 5,
     description: "The objective of this transformative 5-hours Mental Health Mastery Seminar (lunch included) is to introduce Tai Chi, Chi Gong as a supportive method of exercise to the 450,000.000 plus people on antidepressant or in need of better mental health in order to revolutionize the relationship between mental and emotional well-being.",
     highlights: [
       "Daily 7-15-minute morning routines for anxiety relief",
@@ -43,7 +43,7 @@ const courses = [
     duration: "10 weeks",
     lessons: 30,
     students: 3521,
-    rating: 4.8,
+    rating: 5,
     description:
       "Experience the gentle power of Tai Chi for physical healing. Perfect for seniors, those with chronic pain, or anyone seeking a sustainable approach to fitness and flexibility.",
     highlights: [
@@ -65,7 +65,7 @@ const courses = [
     duration: "6 weeks",
     lessons: 18,
     students: 1893,
-    rating: 4.7,
+    rating: 5,
     description:
       "Revolutionary approach combining mindfulness with financial wellness. Break through money blocks and create abundance.",
     highlights: [
@@ -80,6 +80,7 @@ const courses = [
 
 export function CoursesPreview() {
   const [selectedVideo, setSelectedVideo] = useState<any>(null)
+  const [showInterviewModal, setShowInterviewModal] = useState(false)
 
   return (
     <>
@@ -116,7 +117,7 @@ export function CoursesPreview() {
               </div>
               <div className="flex items-center gap-2 bg-white/80 backdrop-blur-sm px-6 py-3 rounded-full shadow-lg">
                 <Star className="w-5 h-5 text-yellow-500" />
-                <span className="font-bold text-gray-800">4.8 Avg Rating</span>
+                <span className="font-bold text-gray-800">5.0 Avg Rating</span>
               </div>
               <div className="flex items-center gap-2 bg-white/80 backdrop-blur-sm px-6 py-3 rounded-full shadow-lg">
                 <CheckCircle className="w-5 h-5 text-green-600" />
@@ -140,43 +141,18 @@ export function CoursesPreview() {
                   className="group hover:shadow-2xl transition-all duration-500 bg-white/90 backdrop-blur-sm border-2 border-transparent hover:border-purple-300 overflow-hidden"
                 >
                   <div className="relative">
-                    <img
-                      src={course.videoData.thumbnail || "/placeholder.svg"}
-                      alt={course.title}
-                      className="w-full h-48 object-cover"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                    <div
-                      className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 cursor-pointer"
-                      onClick={() => setSelectedVideo(course.videoData)}
+                    <a
+                      href="https://www.eventbrite.com/e/tai-chi-with-dr-beauvais-to-manifest-financial-abundance-luncheon-tickets-1668941100759?aff=oddtdtcreator"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block"
                     >
-                      <div className="w-20 h-20 bg-white/95 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform shadow-2xl">
-                        <Play className="w-8 h-8 text-purple-700 ml-1" />
-                      </div>
-                    </div>
-                    <div className="absolute top-4 left-4">
-                      <Badge className="bg-gradient-to-r from-red-500 to-orange-500 text-white font-bold">
-                        🔥 33% OFF
-                      </Badge>
-                    </div>
-                    <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-2 py-1 rounded-full">
-                      <div className="flex items-center gap-1 text-sm">
-                        <Star className="w-3 h-3 fill-yellow-400 text-yellow-400" />
-                        <span className="font-semibold">{course.rating}</span>
-                      </div>
-                    </div>
-                    <div className="absolute bottom-4 left-4 right-4">
-                      <div className="flex items-center gap-4 text-white text-sm">
-                        <div className="flex items-center gap-1">
-                          <Clock className="w-4 h-4" />
-                          <span>{course.duration}</span>
-                        </div>
-                        <div className="flex items-center gap-1">
-                          <Users className="w-4 h-4" />
-                          <span>{course.students.toLocaleString()}</span>
-                        </div>
-                      </div>
-                    </div>
+                      <img
+                        src={course.videoData.thumbnail || "/placeholder.svg"}
+                        alt={course.title}
+                        className="w-full h-48 object-cover"
+                      />
+                    </a>
                   </div>
 
                   <CardHeader className="pb-4">
@@ -221,14 +197,13 @@ export function CoursesPreview() {
                       </div>
 
                       <div className="space-y-3">
-                        <Link href={`/courses/${course.id}`}>
-                          <Button
-                            className={`w-full bg-gradient-to-r ${colorClasses[course.color as keyof typeof colorClasses].split(" ")[0]} ${colorClasses[course.color as keyof typeof colorClasses].split(" ")[1]} hover:opacity-90 text-white py-3 group`}
-                          >
-                            Learn More
-                            <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                          </Button>
-                        </Link>
+                        <Button
+                          onClick={() => setShowInterviewModal(true)}
+                          className={`w-full bg-gradient-to-r ${colorClasses[course.color as keyof typeof colorClasses].split(" ")[0]} ${colorClasses[course.color as keyof typeof colorClasses].split(" ")[1]} hover:opacity-90 text-white py-3 group`}
+                        >
+                          Enroll
+                          <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                        </Button>
                       </div>
                     </div>
                   </CardContent>
@@ -246,22 +221,6 @@ export function CoursesPreview() {
                   Don't just treat symptoms—address the root causes. Our holistic approach creates lasting change in all
                   areas of your life.
                 </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Link href="/courses">
-                    <Button size="lg" className="bg-white text-purple-600 hover:bg-gray-100 px-8 py-3 font-bold">
-                      View All Courses
-                    </Button>
-                  </Link>
-                  <Link href="/about">
-                    <Button
-                      size="lg"
-                      variant="outline"
-                      className="border-2 border-white text-white hover:bg-white hover:text-purple-600 px-8 py-3 font-bold"
-                    >
-                      Meet Dr. Beauvais
-                    </Button>
-                  </Link>
-                </div>
               </CardContent>
             </Card>
           </div>
@@ -270,6 +229,76 @@ export function CoursesPreview() {
 
       {selectedVideo && (
         <VideoModal isOpen={!!selectedVideo} onClose={() => setSelectedVideo(null)} video={selectedVideo} />
+      )}
+
+      {/* Interview Modal */}
+      {showInterviewModal && (
+        <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+          <div className="bg-white rounded-2xl shadow-2xl max-w-6xl w-full max-h-[90vh] overflow-hidden">
+            {/* Header */}
+            <div className="flex items-center justify-between p-6 border-b border-gray-200 bg-gradient-to-r from-purple-50 to-pink-50">
+              <div className="flex items-center gap-4">
+                <div className="bg-gradient-to-r from-purple-600 to-pink-600 p-2 rounded-lg">
+                  <Play className="w-5 h-5 text-white" />
+                </div>
+                <div>
+                  <h2 className="text-xl font-bold text-gray-800">Interview Videos</h2>
+                  <p className="text-sm text-gray-600">Watch these interviews to learn more about our courses</p>
+                </div>
+              </div>
+              <button
+                onClick={() => setShowInterviewModal(false)}
+                className="p-2 hover:bg-gray-100 rounded-full transition-colors"
+                aria-label="Close modal"
+              >
+                <X className="w-6 h-6 text-gray-600" />
+              </button>
+            </div>
+
+            {/* Content */}
+            <div className="overflow-y-auto max-h-[calc(90vh-80px)] p-6">
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {videoData.interviews.map((interview) => (
+                  <div key={interview.id} className="bg-white rounded-lg shadow-lg overflow-hidden border border-gray-200">
+                    <div className="relative">
+                      <img
+                        src={interview.thumbnail}
+                        alt={interview.title}
+                        className="w-full h-48 object-cover"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <div className="w-16 h-16 bg-white/95 rounded-full flex items-center justify-center shadow-2xl">
+                          <Play className="w-6 h-6 text-purple-700 ml-1" />
+                        </div>
+                      </div>
+                    </div>
+                    <div className="p-4">
+                      <h3 className="font-semibold text-gray-800 mb-2">{interview.title}</h3>
+                      <p className="text-sm text-gray-600 mb-3">{interview.description}</p>
+                      <div className="flex items-center gap-2 text-sm text-gray-500">
+                        <Clock className="w-4 h-4" />
+                        <span>{interview.duration}</span>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              
+              {/* CTA */}
+              <div className="mt-8 text-center">
+                <a
+                  href="https://www.eventbrite.com/e/tai-chi-with-dr-beauvais-to-manifest-financial-abundance-luncheon-tickets-1668941100759?aff=oddtdtcreator"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-3 rounded-full font-semibold hover:shadow-lg transition-all duration-300 inline-block"
+                >
+                  Enroll Now
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
       )}
     </>
   )

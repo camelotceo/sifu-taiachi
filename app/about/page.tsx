@@ -290,18 +290,6 @@ export default function AboutPage() {
                 yourself every day. Through gentle movement and mindful awareness, we create space for healing that
                 honors both our struggles and our strength."
               </blockquote>
-              <div className="flex flex-wrap justify-center gap-4">
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="border-white text-white hover:bg-white hover:text-purple-600"
-                >
-                  View My Courses
-                </Button>
-                <Button size="lg" className="bg-white text-purple-600 hover:bg-gray-100">
-                  Read My Book
-                </Button>
-              </div>
             </div>
           </div>
         </section>

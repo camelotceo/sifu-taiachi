@@ -14,7 +14,7 @@ export function FreeVideos() {
 
   return (
     <>
-      <section className="py-20 bg-gradient-to-br from-teal-50 via-blue-50 to-purple-50 relative overflow-hidden">
+      <section id="free-practice-classes" className="py-20 bg-gradient-to-br from-teal-50 via-blue-50 to-purple-50 relative overflow-hidden">
         {/* Background Elements */}
         <div className="absolute inset-0">
           <div className="absolute top-10 left-10 w-72 h-72 bg-teal-200/20 rounded-full blur-3xl animate-pulse" />
@@ -69,34 +69,6 @@ export function FreeVideos() {
           {/* Featured Classes */}
           
 
-          {/* CTA Section */}
-          <div className="text-center">
-            <Card className="bg-gradient-to-r from-teal-600 via-purple-600 to-pink-600 text-white border-0 shadow-2xl">
-              <CardContent className="p-8">
-                <h3 className="text-2xl md:text-3xl font-bold mb-4">Ready for More?</h3>
-                <p className="text-teal-100 mb-6 text-lg max-w-2xl mx-auto">
-                  Love our free classes? Dive deeper with our comprehensive courses designed to transform your mental,
-                  physical, and financial well-being.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Link href="/classes">
-                    <Button size="lg" className="bg-white text-purple-600 hover:bg-gray-100 px-8 py-3 font-bold">
-                      View All Free Classes
-                    </Button>
-                  </Link>
-                  <Link href="/courses">
-                    <Button
-                      size="lg"
-                      variant="outline"
-                      className="border-2 border-white text-white hover:bg-white hover:text-purple-600 px-8 py-3 font-bold bg-transparent"
-                    >
-                      Explore Premium Courses
-                    </Button>
-                  </Link>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
         </div>
       </section>
 

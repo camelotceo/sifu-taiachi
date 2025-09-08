@@ -13,7 +13,7 @@ interface TestimonialsSectionProps {
 const fallbackReviews = [
   {
     id: 1,
-    name: "Sarah M.",
+    name: "Jacqueline",
     rating: 5,
     date: "1 week ago",
     text: "Dr. Beauvais has completely transformed my life. I came to her classes struggling with severe anxiety and depression. Through her gentle guidance and the practice of Tai Chi, I've found inner peace I never thought possible. The breathing techniques alone have been life-changing. I can't recommend her enough!",
@@ -21,7 +21,7 @@ const fallbackReviews = [
   },
   {
     id: 2,
-    name: "Michael R.",
+    name: "Joanna",
     rating: 5,
     date: "2 weeks ago",
     text: "As a veteran dealing with PTSD, I was skeptical about alternative healing methods. Dr. Beauvais created such a safe, understanding environment. Her classes have helped me manage my symptoms better than years of traditional therapy. The community she's built is incredible - we all support each other.",
@@ -29,7 +29,7 @@ const fallbackReviews = [
   },
   {
     id: 3,
-    name: "Linda K.",
+    name: "Maria",
     rating: 5,
     date: "3 weeks ago",
     text: "I've been attending Dr. Beauvais' classes for 6 months now, and the transformation has been remarkable. Not only has my chronic back pain improved significantly, but I've also experienced profound emotional healing. Her approach to wellness is truly holistic and effective.",
@@ -37,7 +37,7 @@ const fallbackReviews = [
   },
   {
     id: 4,
-    name: "Robert T.",
+    name: "Miguel",
     rating: 5,
     date: "1 month ago",
     text: "Dr. Beauvais is a gifted healer and teacher. Her Tai Chi classes have helped me overcome 20 years of chronic pain that doctors couldn't fix. More than that, I've learned to find joy and purpose again. She doesn't just teach movements - she teaches life transformation.",
@@ -45,18 +45,10 @@ const fallbackReviews = [
   },
   {
     id: 5,
-    name: "Maria G.",
+    name: "Dr. Raida",
     rating: 5,
     date: "1 month ago",
     text: "The financial abundance principles Dr. Beauvais teaches alongside Tai Chi have completely changed my relationship with money and success. I've manifested opportunities I never dreamed possible. Her wisdom goes far beyond physical wellness - it's life-changing.",
-    verified: true,
-  },
-  {
-    id: 6,
-    name: "Jennifer L.",
-    rating: 5,
-    date: "2 months ago",
-    text: "After struggling with depression for years, Dr. Beauvais' classes have been my salvation. The combination of movement, meditation, and her compassionate guidance has brought light back into my life. I'm forever grateful for finding this healing community.",
     verified: true,
   },
 ]
