@@ -13,7 +13,7 @@ export function Navigation() {
     { name: "Home", href: "/" },
     { name: "Free Classes", href: "/#free-practice-classes" },
     { name: "Courses", href: "/#transformation-courses" },
-    { name: "About Dr. Beauvais", href: "/about" },
+    { name: "About Dr. Beauvais", href: "/#about" },
     { name: "FAQ", href: "/#faq" },
     { name: "Contact", href: "/contact" },
   ]

@@ -6,6 +6,7 @@ import { SuccessStories } from "@/components/success-stories"
 import { CoursesPreview } from "@/components/courses-preview"
 import { FreeVideos } from "@/components/free-videos"
 import { TestimonialsSection } from "@/components/testimonials-section"
+import { AboutSection } from "@/components/about-section"
 import { FAQ } from "@/components/faq"
 import { ChatbotWidget } from "@/components/chatbot-widget"
 import { usePageContent } from "@/hooks/use-page-content"
@@ -46,6 +47,7 @@ export default function HomePage() {
       <CoursesPreview />
       <FreeVideos />
       <TestimonialsSection content={content} />
+      <AboutSection />
       <FAQ />
       <ChatbotWidget />
     </main>
