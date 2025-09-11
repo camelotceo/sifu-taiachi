@@ -83,34 +83,17 @@ export function AboutSection() {
             <div className="max-w-4xl mx-auto">
               <div className="grid md:grid-cols-3 gap-8">
                 <div className="md:col-span-2 space-y-6">
-                  <h3 className="text-3xl font-bold text-gray-800 mb-6">
-                    My Journey to Wellness
-                  </h3>
-
                   <div className="prose prose-lg text-gray-600">
                     <p className="mb-6">
-                      Dr. Danielle Beauvais discovered the transformative power of Tai Chi during her own journey
-                      through personal challenges with anxiety and chronic pain. What began as a search for healing
-                      became a life-changing passion that has now touched thousands of lives worldwide.
+                      Sifu Danielle Beauvais's interest in Martial Arts originated from the year nineteen seventy-seven learning the Chotokan fighting style. She started her career as a Tai Chi for Arthritis Instructor after being certified by the Tai Chi for Health Institute on March 7, 2007. Eventually after many years and thousands of hours teaching Tai Chi and receiving numerous accolades, certifications, and recognition from local and regional leaders, Sifu Beauvais earned the title Tai Chi Master Instructor from the American Tai Chi Qigong Association. In the interim, with academic success of two doctoral degrees in the field of philosophy from Durham University, and a Doctor of Divinity from Universal Life Church, Sifu Beauvais is a mother of four who struggled with anxiety and chronic pain until she discovered the transformative power of Tai Chi. Thus, what began as a search for healing became a life-changing passion that has now touched thousands of lives worldwide.
                     </p>
 
                     <p className="mb-6">
-                      With over 25 years of dedicated practice and teaching, Dr. Beauvais has developed a unique
-                      approach that integrates traditional Tai Chi principles with modern therapeutic techniques. Her
-                      method addresses not just physical wellness, but the interconnected nature of mental, emotional,
-                      and financial well-being.
-                    </p>
-
-                    <p className="mb-6">
-                      "I believe that true healing happens when we address the whole person," says Dr. Beauvais. "Tai
-                      Chi taught me that our bodies, minds, and spirits are not separate entities, but parts of one
-                      beautiful, integrated system that deserves our gentle attention and care."
+                      "I believe that true healing happens when addressing every aspect of living life," says Sifu Beauvais. "Tai Chi taught me that the body, mind, spirit and the universe are not separate entities, but parts of one beautiful, integrated system."
                     </p>
 
                     <p>
-                      Her groundbreaking work in financial wellness through mindfulness practices has helped countless
-                      individuals break free from limiting beliefs about money and abundance, creating lasting change
-                      that extends far beyond the practice mat.
+                      Sifu Beauvais is globally recognized as a Board Certified Tai Chi Master Instructor, science based holistic healer, and transformative speaker, bridging ancient wisdom with cutting edge science. She has developed a unique approach that integrates having fun with traditional Tai Chi principles, including a unique synthesis of neuroplasticity based holistic modalities from her expertise in soft, hard, and medical Qigong, Qigong Healing with Love, acupressure, yoga, reflexology, feldenkrais, emotion code, that address not just physical wellness, but the interconnected nature of mental, emotional, and financial wellbeing. With fluency in four languages, Sifu Beauvais's classes and seminars empower individuals worldwide to unlock their innate healing potential.
                     </p>
                   </div>
                 </div>
