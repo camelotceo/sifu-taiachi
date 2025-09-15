@@ -6,6 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Mail, Phone, MapPin, Facebook, Instagram, Youtube, Twitter, Send, Heart, MessageCircle } from "lucide-react"
+import { EmailConfirmationModal } from "@/components/email-confirmation-modal"
 
 export function ContactSection() {
   const [formData, setFormData] = useState({
@@ -16,20 +17,55 @@ export function ContactSection() {
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [showModal, setShowModal] = useState(false)
+  const [emailSuccess, setEmailSuccess] = useState(false)
+  const [errorMessage, setErrorMessage] = useState("")
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
+    setErrorMessage("")
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 2000))
+    console.log('📧 Frontend: Starting email submission...')
+    console.log('📧 Frontend: Form data:', {
+      name: formData.name ? `${formData.name.substring(0, 3)}***` : 'Missing',
+      email: formData.email ? `${formData.email.substring(0, 3)}***@${formData.email.split('@')[1] || '***'}` : 'Missing',
+      subject: formData.subject ? `${formData.subject.substring(0, 20)}${formData.subject.length > 20 ? '...' : ''}` : 'Missing',
+      messageLength: formData.message ? formData.message.length : 0,
+    })
 
-    setIsSubmitting(false)
-    setIsSubmitted(true)
-    setFormData({ name: "", email: "", subject: "", message: "" })
+    try {
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
 
-    // Reset success message after 5 seconds
-    setTimeout(() => setIsSubmitted(false), 5000)
+      console.log('📧 Frontend: Response status:', response.status)
+      console.log('📧 Frontend: Response headers:', Object.fromEntries(response.headers.entries()))
+
+      const data = await response.json()
+      console.log('📧 Frontend: Response data:', data)
+
+      if (response.ok) {
+        console.log('✅ Frontend: Email sent successfully')
+        setEmailSuccess(true)
+        setFormData({ name: "", email: "", subject: "", message: "" })
+      } else {
+        console.error('❌ Frontend: Email sending failed:', data)
+        setEmailSuccess(false)
+        setErrorMessage(data.details || data.error || 'Failed to send email')
+      }
+    } catch (error) {
+      console.error('❌ Frontend: Network error:', error)
+      setEmailSuccess(false)
+      setErrorMessage(`Network error: ${error instanceof Error ? error.message : 'Please try again.'}`)
+    } finally {
+      setIsSubmitting(false)
+      setShowModal(true)
+    }
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -81,18 +117,7 @@ export function ContactSection() {
                   <p className="text-gray-600">Fill out the form below and we'll get back to you within 24 hours.</p>
                 </CardHeader>
                 <CardContent>
-                  {isSubmitted ? (
-                    <div className="text-center py-8">
-                      <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <Heart className="w-8 h-8 text-green-600" />
-                      </div>
-                      <h3 className="text-xl font-bold text-gray-800 mb-2">Thank You!</h3>
-                      <p className="text-gray-600">
-                        Your message has been sent successfully. We'll get back to you soon!
-                      </p>
-                    </div>
-                  ) : (
-                    <form onSubmit={handleSubmit} className="space-y-6">
+                  <form onSubmit={handleSubmit} className="space-y-6">
                       <div className="grid md:grid-cols-2 gap-4">
                         <div>
                           <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
@@ -169,8 +194,7 @@ export function ContactSection() {
                           "Send Message"
                         )}
                       </Button>
-                    </form>
-                  )}
+                  </form>
                 </CardContent>
               </Card>
 
@@ -260,6 +284,14 @@ export function ContactSection() {
           </div>
         </div>
       </div>
+
+      {/* Email Confirmation Modal */}
+      <EmailConfirmationModal
+        isOpen={showModal}
+        onClose={() => setShowModal(false)}
+        isSuccess={emailSuccess}
+        errorMessage={errorMessage}
+      />
     </section>
   )
 }
