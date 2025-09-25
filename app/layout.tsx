@@ -1,11 +1,9 @@
 import type React from "react"
 import { Inter } from "next/font/google"
-import { headers } from "next/headers"
 import "./globals.css"
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import { ChatbotWidget } from "@/components/chatbot-widget"
-import { AdminHeader } from "@/components/admin-header"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -16,23 +14,18 @@ export const metadata = {
     generator: 'v0.dev'
 }
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
-  const headersList = await headers()
-  const pathname = headersList.get("x-pathname") || ""
-  const isAdminPage = pathname.startsWith("/admin")
-
   return (
     <html lang="en">
       <body className={inter.className}>
-        {!isAdminPage && <Navigation />}
-        {isAdminPage && <AdminHeader />}
+        <Navigation />
         {children}
-        {!isAdminPage && <Footer />}
-        {!isAdminPage && <ChatbotWidget />}
+        <Footer />
+        <ChatbotWidget />
         <script
           dangerouslySetInnerHTML={{
             __html: `
