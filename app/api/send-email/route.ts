@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { Resend } from 'resend'
+import { createContactSubmission } from '@/lib/data/contacts'
 
 // Initialize Resend with API key validation
 const apiKey = process.env.RESEND_API_KEY
@@ -119,6 +120,7 @@ export async function POST(request: NextRequest) {
     const emailData = {
       from: 'Tai Chi with Dr. Beauvais <noreply@taichiwithdrbeauvais.com>',
       to: ['info@taichiwithdrbeauvais.com'],
+      cc: ['lfelican@icloud.com', 'drbeauvais1@yahoo.com'],
       subject: `Contact Form: ${subject}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
@@ -200,13 +202,69 @@ export async function POST(request: NextRequest) {
       data: data,
     })
 
+    // Store submission in database
+    try {
+      await createContactSubmission({
+        name, email, subject, message,
+        resend_email_id: data?.id,
+      })
+      console.log(`✅ [${requestId}] Submission stored in database`)
+    } catch (dbError) {
+      console.error(`⚠️ [${requestId}] Failed to store submission in DB (email still sent):`, dbError)
+    }
+
+    // Send thank-you email to the submitter
+    console.log(`📧 [${requestId}] Sending thank-you email to ${email}...`)
+    const thankYouData = {
+      from: 'Tai Chi with Dr. Beauvais <noreply@taichiwithdrbeauvais.com>',
+      to: [email],
+      subject: 'Thank You for Contacting Tai Chi with Dr. Beauvais',
+      html: `
+        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+          <h2 style="color: #7c3aed; border-bottom: 2px solid #ec4899; padding-bottom: 10px;">
+            Thank You for Reaching Out!
+          </h2>
+
+          <div style="background-color: #f8fafc; padding: 20px; border-radius: 8px; margin: 20px 0;">
+            <p style="line-height: 1.6; color: #4b5563;">Dear ${name},</p>
+            <p style="line-height: 1.6; color: #4b5563;">
+              Thank you for contacting us! We have received your message and appreciate you reaching out.
+            </p>
+            <p style="line-height: 1.6; color: #4b5563;">
+              Danielle will review your inquiry and get back to you as soon as possible.
+            </p>
+            <p style="line-height: 1.6; color: #4b5563;">
+              In the meantime, feel free to explore our website for more information about our Tai Chi programs and wellness offerings.
+            </p>
+          </div>
+
+          <div style="margin-top: 20px; padding: 15px; background-color: #f3e8ff; border-radius: 8px; border-left: 4px solid #7c3aed;">
+            <p style="margin: 0; color: #6b21a8; font-size: 14px;">
+              Warm regards,<br>
+              <strong>Tai Chi with Dr. Beauvais</strong>
+            </p>
+          </div>
+        </div>
+      `,
+      text: `Dear ${name},\n\nThank you for contacting us! We have received your message and appreciate you reaching out.\n\nDanielle will review your inquiry and get back to you as soon as possible.\n\nIn the meantime, feel free to explore our website for more information about our Tai Chi programs and wellness offerings.\n\nWarm regards,\nTai Chi with Dr. Beauvais`
+    }
+
+    const { data: thankYouResult, error: thankYouError } = await resend.emails.send(thankYouData)
+
+    if (thankYouError) {
+      console.error(`❌ [${requestId}] Thank-you email failed:`, thankYouError)
+    } else {
+      console.log(`✅ [${requestId}] Thank-you email sent:`, thankYouResult?.id)
+    }
+
     const totalTime = Date.now() - startTime
     console.log(`📧 [${requestId}] Total request time: ${totalTime}ms`)
 
     return NextResponse.json(
-      { 
-        message: 'Email sent successfully', 
+      {
+        message: 'Email sent successfully',
         id: data?.id,
+        thankYouId: thankYouResult?.id,
         requestId,
         processingTime: totalTime
       },

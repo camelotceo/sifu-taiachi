@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import { useEnrollUrl } from "@/components/eventbrite-provider"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
@@ -79,6 +80,7 @@ const courses = [
 ]
 
 export function CoursesPreview() {
+  const enrollUrl = useEnrollUrl()
   const [selectedVideo, setSelectedVideo] = useState<any>(null)
   const [showInterviewModal, setShowInterviewModal] = useState(false)
 
@@ -142,7 +144,7 @@ export function CoursesPreview() {
                 >
                   <div className="relative">
                     <a
-                      href="https://www.eventbrite.com/e/tai-chi-with-dr-beauvais-to-manifest-financial-abundance-luncheon-tickets-1668941100759?aff=oddtdtcreator"
+                      href={enrollUrl}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="block"
@@ -288,7 +290,7 @@ export function CoursesPreview() {
               {/* CTA */}
               <div className="mt-8 text-center">
                 <a
-                  href="https://www.eventbrite.com/e/tai-chi-with-dr-beauvais-to-manifest-financial-abundance-luncheon-tickets-1668941100759?aff=oddtdtcreator"
+                  href={enrollUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-3 rounded-full font-semibold hover:shadow-lg transition-all duration-300 inline-block"

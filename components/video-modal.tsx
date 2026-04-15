@@ -1,6 +1,7 @@
 "use client"
 
 import type React from "react"
+import { useEnrollUrl } from "@/components/eventbrite-provider"
 
 import { useEffect, useRef } from "react"
 import { X, Play, Clock, User, Tag, CheckCircle } from "lucide-react"
@@ -14,6 +15,7 @@ interface VideoModalProps {
 }
 
 export function VideoModal({ video, isOpen, onClose }: VideoModalProps) {
+  const enrollUrl = useEnrollUrl()
   const modalRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -151,7 +153,7 @@ export function VideoModal({ video, isOpen, onClose }: VideoModalProps) {
               </p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
                 <a
-                  href="https://www.eventbrite.com/e/tai-chi-with-dr-beauvais-to-manifest-financial-abundance-luncheon-tickets-1668941100759?aff=oddtdtcreator"
+                  href={enrollUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-6 py-2 rounded-full font-semibold hover:shadow-lg transition-all duration-300 inline-block text-center"

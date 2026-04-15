@@ -1,9 +1,7 @@
 import type React from "react"
 import { Inter } from "next/font/google"
 import "./globals.css"
-import { Navigation } from "@/components/navigation"
-import { Footer } from "@/components/footer"
-import { ChatbotWidget } from "@/components/chatbot-widget"
+import { PublicShell } from "@/components/public-shell"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -22,10 +20,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Navigation />
-        {children}
-        <Footer />
-        <ChatbotWidget />
+        <PublicShell>
+          {children}
+        </PublicShell>
         <script
           dangerouslySetInnerHTML={{
             __html: `

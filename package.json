@@ -6,7 +6,8 @@
     "build": "next build",
     "dev": "next dev",
     "lint": "next lint",
-    "start": "next start"
+    "start": "next start",
+    "db:seed": "npx tsx lib/db/seed.ts"
   },
   "dependencies": {
     "@ai-sdk/groq": "latest",
@@ -40,6 +41,8 @@
     "@radix-ui/react-tooltip": "1.1.6",
     "@react-three/drei": "latest",
     "@react-three/fiber": "latest",
+    "@vercel/blob": "^2.3.3",
+    "@vercel/postgres": "^0.10.0",
     "ai": "latest",
     "autoprefixer": "^10.4.20",
     "class-variance-authority": "^0.7.1",
@@ -53,6 +56,7 @@
     "expo-gl": "latest",
     "geist": "^1.3.1",
     "input-otp": "1.4.1",
+    "jose": "^6.2.2",
     "lucide-react": "^0.454.0",
     "next": "15.2.4",
     "next-themes": "^0.4.4",
@@ -75,6 +79,7 @@
     "@types/node": "^22",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "dotenv": "^17.4.2",
     "postcss": "^8.5",
     "tailwindcss": "^3.4.17",
     "typescript": "^5"

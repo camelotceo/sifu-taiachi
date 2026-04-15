@@ -1,6 +1,7 @@
 "use client"
 
 import type React from "react"
+import { useEnrollUrl } from "@/components/eventbrite-provider"
 
 import { useState, useRef, useEffect } from "react"
 import { Card, CardContent } from "@/components/ui/card"
@@ -15,6 +16,7 @@ interface SuccessStoriesProps {
 }
 
 export function SuccessStories({ content }: SuccessStoriesProps) {
+  const enrollUrl = useEnrollUrl()
   const [hoveredVideo, setHoveredVideo] = useState<string | null>(null)
   const [playingVideo, setPlayingVideo] = useState<string | null>(null)
   const [mutedVideos, setMutedVideos] = useState<{ [key: string]: boolean }>({})
@@ -243,7 +245,7 @@ export function SuccessStories({ content }: SuccessStoriesProps) {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="https://www.eventbrite.com/e/tai-chi-with-dr-beauvais-to-manifest-financial-abundance-luncheon-tickets-1668941100759?aff=oddtdtcreator"
+              href={enrollUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-3 rounded-full font-semibold hover:shadow-lg transition-all duration-300 hover:scale-105 inline-block text-center"

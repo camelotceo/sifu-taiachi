@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, use } from "react"
+import { useEnrollUrl } from "@/components/eventbrite-provider"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -296,6 +297,7 @@ const courseData = {
 }
 
 export default function CourseDetailPage({ params }: { params: Promise<{ id: string }> }) {
+  const enrollUrl = useEnrollUrl()
   const [selectedVideo, setSelectedVideo] = useState<any>(null)
   const resolvedParams = use(params)
   const course = courseData[resolvedParams.id as keyof typeof courseData]
@@ -371,7 +373,7 @@ export default function CourseDetailPage({ params }: { params: Promise<{ id: str
                       <Button
                         size="lg"
                         className={`bg-gradient-to-r ${colorClasses[course.color as keyof typeof colorClasses].split(" ")[0]} ${colorClasses[course.color as keyof typeof colorClasses].split(" ")[1]} hover:opacity-90 text-white px-8`}
-                        onClick={() => window.open('https://www.eventbrite.com/e/tai-chi-with-dr-beauvais-to-manifest-financial-abundance-luncheon-tickets-1668941100759?aff=oddtdtcreator', '_blank')}
+                        onClick={() => window.open(enrollUrl, '_blank')}
                       >
                         Enroll Now - ${course.price}
                       </Button>

@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import { useEnrollUrl } from "@/components/eventbrite-provider"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Play, User, Tag, CheckCircle, ArrowRight } from "lucide-react"
@@ -9,6 +10,7 @@ import { VideoModal } from "./video-modal"
 import { videoData, type VideoData } from "./video-data"
 
 export function InterviewsSection() {
+  const enrollUrl = useEnrollUrl()
   const [selectedVideo, setSelectedVideo] = useState<VideoData | null>(null)
   const [isModalOpen, setIsModalOpen] = useState(false)
 
@@ -126,7 +128,7 @@ export function InterviewsSection() {
                     {/* Enroll Button */}
                     <div className="pt-4 border-t border-gray-100">
                       <a
-                        href="https://www.eventbrite.com/e/tai-chi-with-dr-beauvais-to-manifest-financial-abundance-luncheon-tickets-1668941100759?aff=oddtdtcreator"
+                        href={enrollUrl}
                         target="_blank"
                         rel="noopener noreferrer"
                         onClick={(e) => e.stopPropagation()}
