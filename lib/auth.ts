@@ -13,7 +13,7 @@ export function isAllowedEmail(email: string): boolean {
   return ADMIN_EMAILS.includes(email.toLowerCase().trim())
 }
 
-export async function sendMagicLink(email: string): Promise<{ success: boolean; error?: string }> {
+export async function sendMagicLink(email: string, requestOrigin?: string): Promise<{ success: boolean; error?: string }> {
   if (!isAllowedEmail(email)) {
     return { success: false, error: 'Email not authorized' }
   }
@@ -32,9 +32,12 @@ export async function sendMagicLink(email: string): Promise<{ success: boolean; 
     VALUES (${email.toLowerCase()}, ${codeHash}, ${expiresAt.toISOString()})
   `
 
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || process.env.VERCEL_URL
-    ? `https://${process.env.VERCEL_URL}`
-    : 'http://localhost:3000'
+  // Use the request origin so the link always points back to the same deployment
+  const baseUrl = requestOrigin || (process.env.VERCEL_BRANCH_URL
+    ? `https://${process.env.VERCEL_BRANCH_URL}`
+    : process.env.VERCEL_URL
+      ? `https://${process.env.VERCEL_URL}`
+      : 'http://localhost:3000')
   const verifyUrl = `${baseUrl}/admin/verify?code=${code}&email=${encodeURIComponent(email.toLowerCase())}`
 
   const resend = new Resend(process.env.RESEND_API_KEY)

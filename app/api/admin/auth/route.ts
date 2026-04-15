@@ -10,7 +10,9 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Email is required' }, { status: 400 })
     }
 
-    const result = await sendMagicLink(email.trim())
+    // Pass the request origin so the magic link points back to this deployment
+    const origin = request.headers.get('origin') || request.headers.get('referer')?.replace(/\/[^/]*$/, '') || undefined
+    const result = await sendMagicLink(email.trim(), origin)
 
     if (!result.success) {
       // Don't reveal whether the email is in the allowlist
