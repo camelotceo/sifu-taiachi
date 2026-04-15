@@ -1,10 +1,10 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Card, CardContent } from "@/components/ui/card"
 import { ChevronDown, ChevronUp, HelpCircle } from "lucide-react"
 
-const faqs = [
+const hardcodedFaqs = [
   {
     id: 1,
     question: "What is Tai Chi and how can it help me?",
@@ -57,7 +57,7 @@ const faqs = [
     id: 9,
     question: "Does Tai Chi really help with mental illness?",
     answer:
-      "Tai Chi can help with mental illness by reducing stress, anxiety, and depression through its gentle, mindful movements and deep breathing techniques. It promotes relaxation and improves emotional regulation ,which can help stabilize mood and reduce negative thought patterns. Practicing Tai Chi regularly can also enhance self-awareness, boost self-esteem, and improve sleep—factors that are often disrupted in mental illness. Its meditative nature fosters a sense of inner calm and connection, supporting overall mental health and well-being.",
+      "Tai Chi can help with mental illness by reducing stress, anxiety, and depression through its gentle, mindful movements and deep breathing techniques. It promotes relaxation and improves emotional regulation ,which can help stabilize mood and reduce negative thought patterns. Practicing Tai Chi regularly can also enhance self-awareness, boost self-esteem, and improve sleep\u2014factors that are often disrupted in mental illness. Its meditative nature fosters a sense of inner calm and connection, supporting overall mental health and well-being.",
   },
   {
     id: 10,
@@ -69,7 +69,7 @@ const faqs = [
     id: 11,
     question: "Can practicing Tai Chi reduce stress?",
     answer:
-      "Tai Chi’s slow, mindful movements combined with deep breathing activates the parasympathetic nervous system (the 'rest and digest'mode) tolower cortisol (stress hormone) levels and help practitioners feel more relaxed.",
+      "Tai Chi's slow, mindful movements combined with deep breathing activates the parasympathetic nervous system (the 'rest and digest'mode) tolower cortisol (stress hormone) levels and help practitioners feel more relaxed.",
   },
   {
     id: 12,
@@ -105,6 +105,29 @@ const faqs = [
 
 export function FAQ() {
   const [openItems, setOpenItems] = useState<number[]>([])
+  const [faqs, setFaqs] = useState<{ id: number; question: string; answer: string }[]>(hardcodedFaqs)
+
+  useEffect(() => {
+    fetch("/api/public/faqs")
+      .then((res) => {
+        if (!res.ok) throw new Error("Failed to fetch FAQs")
+        return res.json()
+      })
+      .then((data) => {
+        if (data && data.length > 0) {
+          // Map DB fields to component format
+          const mapped = data.map((f: any, index: number) => ({
+            id: typeof f.id === "string" ? index + 1 : f.id,
+            question: f.question,
+            answer: f.answer,
+          }))
+          setFaqs(mapped)
+        }
+      })
+      .catch((err) => {
+        console.error("FAQ: Failed to fetch from DB API", err)
+      })
+  }, [])
 
   const toggleItem = (id: number) => {
     setOpenItems((prev) => (prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id]))

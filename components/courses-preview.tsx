@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { useEnrollUrl } from "@/components/eventbrite-provider"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
@@ -10,7 +10,19 @@ import Link from "next/link"
 import { VideoModal } from "./video-modal"
 import { videoData } from "./video-data"
 
-const courses = [
+const iconMap: { [key: string]: any } = {
+  "mental-health": Brain,
+  "physical-health": Heart,
+  "financial-health": DollarSign,
+}
+
+const colorMap: { [key: string]: string } = {
+  "mental-health": "purple",
+  "physical-health": "pink",
+  "financial-health": "teal",
+}
+
+const hardcodedCourses = [
   {
     id: "mental-health",
     title: "Mental Health Mastery",
@@ -83,6 +95,71 @@ export function CoursesPreview() {
   const enrollUrl = useEnrollUrl()
   const [selectedVideo, setSelectedVideo] = useState<any>(null)
   const [showInterviewModal, setShowInterviewModal] = useState(false)
+  const [courses, setCourses] = useState(hardcodedCourses)
+  const [interviews, setInterviews] = useState(videoData.interviews)
+
+  useEffect(() => {
+    // Fetch courses from DB
+    fetch("/api/public/courses")
+      .then((res) => {
+        if (!res.ok) throw new Error("Failed to fetch courses")
+        return res.json()
+      })
+      .then((data) => {
+        if (data && data.length > 0) {
+          // Map DB fields to component format
+          const mapped = data.map((c: any) => ({
+            id: c.id,
+            title: c.title,
+            subtitle: c.subtitle || "",
+            icon: iconMap[c.id] || Brain,
+            color: colorMap[c.id] || "purple",
+            price: c.price ?? 99,
+            originalPrice: c.original_price ?? 149,
+            duration: c.duration || "",
+            lessons: c.lessons ?? 0,
+            students: c.students ?? 0,
+            rating: c.rating ?? 5,
+            description: c.description || "",
+            highlights: Array.isArray(c.highlights) ? c.highlights : [],
+            videoData: videoData.courseVideos[c.id as keyof typeof videoData.courseVideos] || videoData.courseVideos["mental-health"],
+          }))
+          setCourses(mapped)
+        }
+      })
+      .catch((err) => {
+        console.error("CoursesPreview: Failed to fetch from DB API", err)
+      })
+
+    // Fetch interview videos from DB
+    fetch("/api/public/videos?category=interview")
+      .then((res) => {
+        if (!res.ok) throw new Error("Failed to fetch interview videos")
+        return res.json()
+      })
+      .then((data) => {
+        if (data && data.length > 0) {
+          // Map DB fields to VideoData format
+          const mapped = data.map((v: any) => ({
+            id: v.id,
+            title: v.title,
+            description: v.description || "",
+            vimeoId: v.vimeo_id || undefined,
+            youtubeId: v.youtube_id || undefined,
+            thumbnail: v.thumbnail || "",
+            duration: v.duration || "",
+            level: v.level || "All Levels",
+            instructor: v.instructor || "Dr. Danielle Beauvais",
+            topics: Array.isArray(v.topics) ? v.topics : [],
+            benefits: Array.isArray(v.benefits) ? v.benefits : [],
+          }))
+          setInterviews(mapped)
+        }
+      })
+      .catch((err) => {
+        console.error("CoursesPreview: Failed to fetch interview videos from DB API", err)
+      })
+  }, [])
 
   return (
     <>
@@ -194,7 +271,7 @@ export function CoursesPreview() {
                           <span className="text-lg text-gray-400 line-through ml-2">${course.originalPrice}</span>
                         </div>
                         <Badge variant="destructive" className="text-xs font-bold">
-                          SAVE $50
+                          SAVE ${(course.originalPrice ?? 0) - (course.price ?? 0)}
                         </Badge>
                       </div>
 
@@ -260,7 +337,7 @@ export function CoursesPreview() {
             {/* Content */}
             <div className="overflow-y-auto max-h-[calc(90vh-80px)] p-6">
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {videoData.interviews.map((interview) => (
+                {interviews.map((interview) => (
                   <div key={interview.id} className="bg-white rounded-lg shadow-lg overflow-hidden border border-gray-200">
                     <div className="relative">
                       <img
@@ -286,7 +363,7 @@ export function CoursesPreview() {
                   </div>
                 ))}
               </div>
-              
+
               {/* CTA */}
               <div className="mt-8 text-center">
                 <a

@@ -1,5 +1,6 @@
 "use client"
 
+import { useState, useEffect } from "react"
 import { Star, ExternalLink, RefreshCw, AlertCircle } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
@@ -54,19 +55,42 @@ const fallbackReviews = [
 ]
 
 export function TestimonialsSection({ content }: TestimonialsSectionProps) {
-  // Debug logging
-  console.log("TestimonialsSection: content received:", content)
-  console.log("TestimonialsSection: content.testimonials:", content?.testimonials)
-  
-  // Use admin content if available, otherwise fall back to hardcoded data
-  const testimonials = content?.testimonials || fallbackReviews
+  const [dbTestimonials, setDbTestimonials] = useState<any[] | null>(null)
+
+  useEffect(() => {
+    fetch("/api/public/testimonials")
+      .then((res) => {
+        if (!res.ok) throw new Error("Failed to fetch testimonials")
+        return res.json()
+      })
+      .then((data) => {
+        if (data && data.length > 0) {
+          // Map DB fields to component format
+          const mapped = data.map((t: any) => ({
+            id: t.id,
+            name: t.name,
+            rating: t.rating,
+            text: t.text,
+            age: t.age,
+            course: t.course,
+            date: t.age ? `${t.age} years old` : undefined,
+            verified: true,
+          }))
+          setDbTestimonials(mapped)
+        }
+      })
+      .catch((err) => {
+        console.error("TestimonialsSection: Failed to fetch from DB API", err)
+      })
+  }, [])
+
+  // Priority: DB data > admin page content > hardcoded fallback
+  const testimonials = dbTestimonials || content?.testimonials || fallbackReviews
   const reviewCount = testimonials.length
-  // Check if we have admin content by looking for admin-specific fields
-  const isUsingAdminContent = content?.testimonials && content.testimonials.length > 0 && 
+  // Check if we have DB content by looking for DB-specific fields
+  const isUsingDbContent = dbTestimonials !== null && dbTestimonials.length > 0
+  const isUsingAdminContent = !isUsingDbContent && content?.testimonials && content.testimonials.length > 0 &&
     content.testimonials.some((t: any) => 'age' in t && 'course' in t)
-  
-  console.log("TestimonialsSection: using admin content:", isUsingAdminContent)
-  console.log("TestimonialsSection: testimonials to display:", testimonials)
 
   return (
     <section className="py-20 bg-gradient-to-br from-blue-50 via-green-50 to-blue-100">
@@ -93,7 +117,7 @@ export function TestimonialsSection({ content }: TestimonialsSectionProps) {
             <div className="text-gray-600">
               <p className="font-medium">Based on {reviewCount}+ Student Reviews</p>
             </div>
-            
+
 
           </div>
 
@@ -133,7 +157,9 @@ export function TestimonialsSection({ content }: TestimonialsSectionProps) {
                     </div>
                   </div>
                   <span className="text-sm text-gray-500">
-                    {isUsingAdminContent ? `${(testimonial as any).age} years old` : (testimonial as any).date}
+                    {(isUsingDbContent || isUsingAdminContent) && testimonial.age
+                      ? `${testimonial.age} years old`
+                      : testimonial.date || ""}
                   </span>
                 </div>
 
@@ -144,11 +170,13 @@ export function TestimonialsSection({ content }: TestimonialsSectionProps) {
                 <div className="flex items-center gap-2 mt-4 pt-4 border-t border-gray-100">
                   <div className="w-4 h-4 bg-gradient-to-r from-blue-500 to-green-500 rounded-full flex items-center justify-center">
                     <span className="text-white font-bold text-xs">
-                      {isUsingAdminContent ? "C" : "G"}
+                      {(isUsingDbContent || isUsingAdminContent) && testimonial.course ? "C" : "G"}
                     </span>
                   </div>
                   <span className="text-sm text-gray-600">
-                    {isUsingAdminContent ? (testimonial as any).course : "Google Review"}
+                    {(isUsingDbContent || isUsingAdminContent) && testimonial.course
+                      ? testimonial.course
+                      : "Google Review"}
                   </span>
                 </div>
               </CardContent>

@@ -22,6 +22,7 @@ export function SuccessStories({ content }: SuccessStoriesProps) {
   const [mutedVideos, setMutedVideos] = useState<{ [key: string]: boolean }>({})
   const [isMobile, setIsMobile] = useState(false)
   const videoRefs = useRef<{ [key: string]: HTMLIFrameElement | null }>({})
+  const [stories, setStories] = useState(videoData.successStories)
 
   useEffect(() => {
     // Detect mobile devices
@@ -33,6 +34,36 @@ export function SuccessStories({ content }: SuccessStoriesProps) {
     window.addEventListener("resize", checkMobile)
 
     return () => window.removeEventListener("resize", checkMobile)
+  }, [])
+
+  useEffect(() => {
+    fetch("/api/public/videos?category=success_story")
+      .then((res) => {
+        if (!res.ok) throw new Error("Failed to fetch success stories")
+        return res.json()
+      })
+      .then((data) => {
+        if (data && data.length > 0) {
+          // Map DB fields (snake_case) to component format (camelCase)
+          const mapped = data.map((v: any) => ({
+            id: v.id,
+            title: v.title,
+            description: v.description || "",
+            vimeoId: v.vimeo_id || undefined,
+            youtubeId: v.youtube_id || undefined,
+            thumbnail: v.thumbnail || "",
+            duration: v.duration || "",
+            level: v.level || "All Levels",
+            instructor: v.instructor || "Dr. Danielle Beauvais",
+            topics: Array.isArray(v.topics) ? v.topics : [],
+            benefits: Array.isArray(v.benefits) ? v.benefits : [],
+          }))
+          setStories(mapped)
+        }
+      })
+      .catch((err) => {
+        console.error("SuccessStories: Failed to fetch from DB API", err)
+      })
   }, [])
 
   const handleVideoInteraction = (videoId: string, action: "play" | "pause" | "toggle-mute") => {
@@ -115,7 +146,7 @@ export function SuccessStories({ content }: SuccessStoriesProps) {
 
         {/* Success Stories Grid - Updated for 5 videos */}
         <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6 mb-16">
-          {videoData.successStories.map((story) => (
+          {stories.map((story) => (
             <Card
               key={story.id}
               className="group relative overflow-hidden bg-white/90 backdrop-blur-sm border border-gray-200 hover:border-purple-300 transition-all duration-500 hover:shadow-2xl cursor-pointer"
@@ -255,7 +286,7 @@ export function SuccessStories({ content }: SuccessStoriesProps) {
           </div>
         </div>
       </div>
-      
+
       {/* Photo Gallery Section */}
       <PhotoGallery />
     </section>

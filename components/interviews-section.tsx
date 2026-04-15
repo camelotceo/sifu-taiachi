@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { useEnrollUrl } from "@/components/eventbrite-provider"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -13,6 +13,37 @@ export function InterviewsSection() {
   const enrollUrl = useEnrollUrl()
   const [selectedVideo, setSelectedVideo] = useState<VideoData | null>(null)
   const [isModalOpen, setIsModalOpen] = useState(false)
+  const [interviews, setInterviews] = useState<VideoData[]>(videoData.interviews)
+
+  useEffect(() => {
+    fetch("/api/public/videos?category=interview")
+      .then((res) => {
+        if (!res.ok) throw new Error("Failed to fetch interviews")
+        return res.json()
+      })
+      .then((data) => {
+        if (data && data.length > 0) {
+          // Map DB fields (snake_case) to VideoData interface (camelCase)
+          const mapped: VideoData[] = data.map((v: any) => ({
+            id: v.id,
+            title: v.title,
+            description: v.description || "",
+            vimeoId: v.vimeo_id || undefined,
+            youtubeId: v.youtube_id || undefined,
+            thumbnail: v.thumbnail || "",
+            duration: v.duration || "",
+            level: v.level || "All Levels",
+            instructor: v.instructor || "Dr. Danielle Beauvais",
+            topics: Array.isArray(v.topics) ? v.topics : [],
+            benefits: Array.isArray(v.benefits) ? v.benefits : [],
+          }))
+          setInterviews(mapped)
+        }
+      })
+      .catch((err) => {
+        console.error("InterviewsSection: Failed to fetch from DB API", err)
+      })
+  }, [])
 
   const handleVideoClick = (video: VideoData) => {
     setSelectedVideo(video)
@@ -50,7 +81,7 @@ export function InterviewsSection() {
 
           {/* Interviews Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-            {videoData.interviews.map((interview) => (
+            {interviews.map((interview) => (
               <Card
                 key={interview.id}
                 className="group cursor-pointer hover:shadow-2xl transition-all duration-500 bg-white/90 backdrop-blur-sm border border-gray-200 hover:border-blue-300 overflow-hidden"
